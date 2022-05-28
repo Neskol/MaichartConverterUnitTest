@@ -1,7 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MaichartConverter;
 using static MaichartConverter.Chart;
 
-namespace MaichartConverter
+namespace MaichartConverterUnitTest
 {
     [TestClass]
     public class ChartTest
@@ -219,7 +220,7 @@ namespace MaichartConverter
             Chart chart = new Ma2();
             chart.BPMChanges = new BPMChanges();
             chart.BPMChanges.Add(new BPMChange(0, 0, 120));
-            Note x = new Tap("TAP", 0, 384, "1");
+            Note x = new Tap("TAP", 1, 0, "1");
             chart.Notes.Add(x);
             chart.Update();
             double expected = 120.0;
@@ -241,9 +242,9 @@ namespace MaichartConverter
             double expectedTick = 60.0;
             double expectedWait = 120.0;
             double expectedLast = 240.0;
-            double actualTick = chart.GetTimeStamp(x.TickStamp);
-            double actualWait = chart.GetTimeStamp(x.WaitTickStamp);
-            double actualLast = chart.GetTimeStamp(x.LastTickStamp);
+            double actualTick = chart.GetBPMByTick(x.TickStamp);
+            double actualWait = chart.GetBPMByTick(x.WaitTickStamp);
+            double actualLast = chart.GetBPMByTick(x.LastTickStamp);
             Assert.AreEqual(expectedTick, actualTick);
             Assert.AreEqual(expectedWait, actualWait);
             Assert.AreEqual(expectedLast, actualLast);

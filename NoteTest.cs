@@ -3,7 +3,7 @@ using static MaichartConverter.Note;
 using static MaichartConverter.Chart;
 using MaichartConverter;
 
-namespace MaichartConverter
+namespace MaichartConverterUnitTest
 {
 	[TestClass]
 	public class NoteTest
