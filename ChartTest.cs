@@ -47,10 +47,10 @@ namespace MaichartConverter
             Chart chart = new Ma2();
             chart.BPMChanges = new BPMChanges();
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
-            chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
+            chart.BPMChanges.Add(new BPMChange(1,0,120.0));
             double expected = GetBPMTimeUnit(60) * 384 + GetBPMTimeUnit(120) * 384;
             double actual = chart.GetTimeStamp(768);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected,actual);
         }
 
         [TestMethod]
@@ -142,7 +142,7 @@ namespace MaichartConverter
 
 
         /// <summary>
-        /// Test GetTimeStamp with actuall notes
+        /// Test GetTimeStamp with actual notes
         /// </summary>
         [TestMethod]
         public void GetTimeStampTestNoteTapBar0Tick192()
