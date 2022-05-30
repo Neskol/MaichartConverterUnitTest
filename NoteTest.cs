@@ -100,6 +100,12 @@ namespace MaichartConverterUnitTest
             Assert.AreEqual(expectedWait, actualWait);
             Assert.AreEqual(expectedLast, actualLast);
         }
+
+        //[TestMethod]
+        //public void Fail()
+        //{
+        //    Assert.Fail();
+        //}
     }
 }
 
