@@ -6688,32 +6688,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/neskol/.nuget/packages/": {}
+    "C:\\Users\\Neskol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
       "projectName": "MaichartConverterUnitTest",
-      "projectPath": "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
-      "packagesPath": "/Users/neskol/.nuget/packages/",
-      "outputPath": "/Users/neskol/Projects/MaichartConverterUnitTest/obj/",
+      "projectPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
+      "packagesPath": "C:\\Users\\Neskol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/neskol/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Neskol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj": {
-              "projectPath": "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj"
+            "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj": {
+              "projectPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj"
             }
           }
         }
@@ -6762,7 +6764,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
