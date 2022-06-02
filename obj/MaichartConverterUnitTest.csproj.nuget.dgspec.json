@@ -1,35 +1,91 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj": {}
+    "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj": {
+    "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
-        "projectName": "MaichartConverterUnitTest",
-        "projectPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
-        "packagesPath": "C:\\Users\\Neskol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\obj\\",
+        "projectUniqueName": "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj",
+        "projectName": "MaichartConverter",
+        "projectPath": "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj",
+        "packagesPath": "/Users/neskol/.nuget/packages/",
+        "outputPath": "/Users/neskol/Projects/MaichartConverter/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Neskol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/neskol/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.DependencyValidation.Analyzers": {
+              "target": "Package",
+              "version": "[0.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
+        "projectName": "MaichartConverterUnitTest",
+        "projectPath": "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
+        "packagesPath": "/Users/neskol/.nuget/packages/",
+        "outputPath": "/Users/neskol/Projects/MaichartConverterUnitTest/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/neskol/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj": {
-                "projectPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj"
+              "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj": {
+                "projectPath": "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj"
               }
             }
           }
@@ -78,67 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj",
-        "projectName": "MaichartConverter",
-        "projectPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj",
-        "packagesPath": "C:\\Users\\Neskol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\Neskol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.DependencyValidation.Analyzers": {
-              "target": "Package",
-              "version": "[0.11.0, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
         }
       }
     }
