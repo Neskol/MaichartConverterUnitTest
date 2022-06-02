@@ -201,10 +201,10 @@ namespace MaichartConverterUnitTest
             string token = "1-3[2:1]";
             List<string> expected = new() { "1_", "-3[2:1]" };
             List<string> actual = ExtractEachSlides(token);
-            Assert.AreEqual(expected.Count,actual.Count);
-            for (int i = 0;i<expected.Count;i++)
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < expected.Count; i++)
             {
-                Assert.AreEqual(expected[i],actual[i]);
+                Assert.AreEqual(expected[i], actual[i]);
             }
         }
         [TestMethod]
@@ -259,218 +259,6 @@ namespace MaichartConverterUnitTest
             }
         }
 
-        //Test EachGroupOfToken
-        [TestMethod]
-        public void EachGroupOfTokenBasicTest()
-        {
-            string token = "1";
-            List<string> expected = new() { token };
-            List<string> actual = EachGroupOfToken(token);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenSlideBasicTest()
-        {
-            string token = "1-3[2:1]";
-            List<string> expected = new() { "1_","-3[2:1]" };
-            List<string> actual = EachGroupOfToken(token);
-            for (int i = 0; i < actual.Count; i++)
-            {
-                Console.WriteLine(actual[i]);
-            }
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenBPMBasicTest()
-        {
-            string token = "(240)";
-            List<string> expected = new() { token };
-            List<string> actual = EachGroupOfToken(token);
-            for (int i = 0; i < actual.Count; i++)
-            {
-                Console.WriteLine(actual[i]);
-            }
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenMeasureBasicTest()
-        {
-            string token = "{4}";
-            List<string> expected = new() { token };
-            List<string> actual = EachGroupOfToken(token);
-            for (int i = 0; i < actual.Count; i++)
-            {
-                Console.WriteLine(actual[i]);
-            }
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenTapEachTest()
-        {
-            string token = "1/2";
-            List<string> expected = new() { "1","2"};
-            List<string> actual = EachGroupOfToken(token);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenTapEach3Test()
-        {
-            string token = "1/2/3";
-            List<string> expected = new() { "1", "2","3" };
-            List<string> actual = EachGroupOfToken(token);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenTapEachWithoutSlashTest()
-        {
-            string token = "12";
-            List<string> expected = new() { "1", "2" };
-            List<string> actual = EachGroupOfToken(token);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenTapHoldEachTest()
-        {
-            string token = "1/2h[1:2]";
-            List<string> expected = new() { "1", "2h[1:2]" };
-            List<string> actual = EachGroupOfToken(token);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenBPMTapEachTest()
-        {
-            string token = "(120)1";
-            List<string> expected = new() { "(120)", "1" };
-            List<string> actual = EachGroupOfToken(token);
-            for (int i = 0; i < actual.Count; i++)
-            {
-                Console.WriteLine(actual[i]);
-            }
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenMeasureTapEachTest()
-        {
-            string token = "{4}1";
-            List<string> expected = new() { "{4}", "1" };
-            List<string> actual = EachGroupOfToken(token);
-            for (int i = 0; i < actual.Count; i++)
-            {
-                Console.WriteLine(actual[i]);
-            }
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenBPMMeasureTapEachTest()
-        {
-            string token = "(120){4}1";
-            List<string> expected = new() { "(120)","{4}", "1" };
-            List<string> actual = EachGroupOfToken(token);
-            for (int i = 0; i < actual.Count; i++)
-            {
-                Console.WriteLine(actual[i]);
-            }
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-
-        [TestMethod]
-        public void EachGroupOfTokenTapSlideEachTest()
-        {
-            string token = "1/2-3[1:2]";
-            List<string> expected = new() { "1", "2_","-3[1:2]" };
-            List<string> actual = EachGroupOfToken(token);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenTap3SlideEachTest()
-        {
-            string token = "1/2-3[1:2]*v4[1:2]*qq5[1:2]";
-            List<string> expected = new() { "1", "2_", "-3[1:2]","v4[1:2]","qq5[1:2]" };
-            List<string> actual = EachGroupOfToken(token);
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
-        [TestMethod]
-        public void EachGroupOfTokenMixedEachTest()
-        {
-            string token = "(120){4}1/2-3[1:2]*v4[1:2]*qq5[1:2]/3h[1:2]/4b/5x/C1f";
-            List<string> expected = new() {"(120)","{4}", "1", "2_", "-3[1:2]", "v4[1:2]", "qq5[1:2]","3h[1:2]","4b","5x","C1f" };
-            List<string> actual = EachGroupOfToken(token);
-            for (int i = 0; i < actual.Count; i++)
-            {
-                Console.WriteLine(actual[i]);
-            }
-            Assert.AreEqual(expected.Count, actual.Count);
-            for (int i = 0; i < expected.Count; i++)
-            {
-                Assert.AreEqual(expected[i], actual[i]);
-            }
-        }
-
         [TestMethod]
         public void ComprehensiveTest()
         {
@@ -483,11 +271,11 @@ namespace MaichartConverterUnitTest
             {
                 tokensList.AddRange(SimaiParser.EachGroupOfToken(x));
             }
-            foreach (string y in tokensList)
-            {
-                tokensSecondTry.AddRange(SimaiParser.EachGroupOfToken(y));
-            }
-            string[] tokens = tokensSecondTry.ToArray();
+            //foreach (string y in tokensList)
+            //{
+            //    tokensSecondTry.AddRange(SimaiParser.EachGroupOfToken(y));
+            //}
+            string[] tokens = tokensList.ToArray();
             foreach (string x in tokens)
             {
                 Console.WriteLine(x);
@@ -496,8 +284,13 @@ namespace MaichartConverterUnitTest
             Chart candidate = parser.ChartOfToken(tokens);
             MaidataCompiler compiler = new MaidataCompiler();
             Console.WriteLine(compiler.Compose(candidate));
-            Assert.IsTrue(true);
         }
+
+        //[TestMethod]
+        //public void EachNoteOfToken1()
+        //{
+        //    Assert.IsTrue(true);
+        //}
     }
 }
 
