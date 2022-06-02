@@ -12,7 +12,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void HoldOfTokenWithBar0Tick0HLDTest()
         {
-            string holdToken = "3[4:1]";
+            string holdToken = "3h[4:1]";
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
             string expectedKey = "2";
@@ -32,7 +32,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void HoldOfTokenWithBar0Tick0XHDTest()
         {
-            string holdToken = "3x[4:1]";
+            string holdToken = "3xh[4:1]";
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
             string expectedKey = "2";
@@ -274,6 +274,23 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void EachGroupOfTokenSlideBasicTest()
+        {
+            string token = "1-3[2:1]";
+            List<string> expected = new() { "1_","-3[2:1]" };
+            List<string> actual = EachGroupOfToken(token);
+            for (int i = 0; i < actual.Count; i++)
+            {
+                Console.WriteLine(actual[i]);
+            }
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i], actual[i]);
+            }
+        }
+
+        [TestMethod]
         public void EachGroupOfTokenBPMBasicTest()
         {
             string token = "(240)";
@@ -349,8 +366,8 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void EachGroupOfTokenTapHoldEachTest()
         {
-            string token = "1/2[1:2]";
-            List<string> expected = new() { "1", "2[1:2]" };
+            string token = "1/2h[1:2]";
+            List<string> expected = new() { "1", "2h[1:2]" };
             List<string> actual = EachGroupOfToken(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -440,8 +457,8 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void EachGroupOfTokenMixedEachTest()
         {
-            string token = "(120){4}1/2-3[1:2]*v4[1:2]*qq5[1:2]/3[1:2]/4b/5x/C1f";
-            List<string> expected = new() {"(120)","{4}", "1", "2_", "-3[1:2]", "v4[1:2]", "qq5[1:2]","3[1:2]","4b","5x","C1f" };
+            string token = "(120){4}1/2-3[1:2]*v4[1:2]*qq5[1:2]/3h[1:2]/4b/5x/C1f";
+            List<string> expected = new() {"(120)","{4}", "1", "2_", "-3[1:2]", "v4[1:2]", "qq5[1:2]","3h[1:2]","4b","5x","C1f" };
             List<string> actual = EachGroupOfToken(token);
             for (int i = 0; i < actual.Count; i++)
             {
@@ -452,6 +469,34 @@ namespace MaichartConverterUnitTest
             {
                 Assert.AreEqual(expected[i], actual[i]);
             }
+        }
+
+        [TestMethod]
+        public void ComprehensiveTest()
+        {
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            SimaiParser parser = new SimaiParser();
+            string[] tokensCandidates = tokenizer.Tokens(@"D:\SimaiCandidate.txt");
+            List<string> tokensList = new();
+            List<string> tokensSecondTry = new();
+            foreach (string x in tokensCandidates)
+            {
+                tokensList.AddRange(SimaiParser.EachGroupOfToken(x));
+            }
+            foreach (string y in tokensList)
+            {
+                tokensSecondTry.AddRange(SimaiParser.EachGroupOfToken(y));
+            }
+            string[] tokens = tokensSecondTry.ToArray();
+            foreach (string x in tokens)
+            {
+                Console.WriteLine(x);
+            }
+            //Assert.Fail();
+            Chart candidate = parser.ChartOfToken(tokens);
+            MaidataCompiler compiler = new MaidataCompiler();
+            Console.WriteLine(compiler.Compose(candidate));
+            Assert.IsTrue(true);
         }
     }
 }
