@@ -101,11 +101,18 @@ namespace MaichartConverterUnitTest
             Assert.AreEqual(expectedLast, actualLast);
         }
 
-        //[TestMethod]
-        //public void Fail()
-        //{
-        //    Assert.Fail();
-        //}
+        [TestMethod]
+        public void SlideComposeTestSLL1V37()
+        {
+            Note start = new Tap("STR", 0, 0, "0");
+            Note slide = new Slide("SLL",0,0,"0",96,96,"6");
+            slide.SlideStart = start;
+            string expected = "1V37[4:1]";
+            string startCompose = start.Compose(0);
+            string slideCompose = slide.Compose(0);
+            string actual = startCompose + slideCompose;
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 

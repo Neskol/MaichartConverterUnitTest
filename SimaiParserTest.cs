@@ -171,6 +171,31 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void SlideOfTokenWithRealSLLTest()
+        {
+            string slideToken = "V37[4:1]";
+            Tap previousSlideStart = new Tap("BRK", 1, 96, "0");
+            SimaiParser parser = new SimaiParser();
+            Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
+            string expectedKey = "0";
+            string expectedEndKey = "6";
+            string expectedType = "SLL";
+            int expectedBar = 1;
+            int expectedTick = 96;
+            int expectedWaitLength = 96;
+            int expectedLastLength = 96;
+            double expectedBPM = 120.0;
+            Assert.AreEqual(expectedKey, x.Key, "Key does not match!");
+            Assert.AreEqual(expectedEndKey, x.EndKey, "End Key does not match!");
+            Assert.AreEqual(expectedType, x.NoteType, "Slide Type does not match!");
+            Assert.AreEqual(expectedBar, x.Bar, "Bar does not match!");
+            Assert.AreEqual(expectedTick, x.Tick, "Tick does not match!");
+            Assert.AreEqual(expectedWaitLength, x.WaitLength, "Wait Length does not match!");
+            Assert.AreEqual(expectedLastLength, x.LastLength, "Last Length does not match!");
+            Assert.AreEqual(expectedBPM, x.BPM, "BPM does not match!");
+        }
+
+        [TestMethod]
         public void SlideOfTokenWithBar1Tick96SLRTest()
         {
             string slideToken = "V75[4:1]";
@@ -264,26 +289,27 @@ namespace MaichartConverterUnitTest
         {
             SimaiTokenizer tokenizer = new SimaiTokenizer();
             SimaiParser parser = new SimaiParser();
-            string[] tokensCandidates = tokenizer.Tokens(@"D:\SimaiCandidate.txt");
+            string[] tokensCandidates = tokenizer.Tokens(@"C:\Users\Neskol\source\repos\MaichartConverter\data\SimaiCandidate.txt");
             List<string> tokensList = new();
             List<string> tokensSecondTry = new();
-            foreach (string x in tokensCandidates)
-            {
-                tokensList.AddRange(SimaiParser.EachGroupOfToken(x));
-            }
+            //foreach (string x in tokensCandidates)
+            //{
+            //    tokensList.AddRange(SimaiParser.EachGroupOfToken(x));
+            //}
             //foreach (string y in tokensList)
             //{
             //    tokensSecondTry.AddRange(SimaiParser.EachGroupOfToken(y));
             //}
             string[] tokens = tokensList.ToArray();
-            foreach (string x in tokens)
-            {
-                Console.WriteLine(x);
-            }
+            //foreach (string x in tokens)
+            //{
+            //    Console.WriteLine(x);
+            //}
             //Assert.Fail();
-            Chart candidate = parser.ChartOfToken(tokens);
+            Chart candidate = parser.ChartOfToken(tokensCandidates);
             MaidataCompiler compiler = new MaidataCompiler();
-            Console.WriteLine(compiler.Compose(candidate));
+            Ma2 toMa2 = new Ma2(candidate);
+            Console.WriteLine(toMa2.Compose());
         }
 
         //[TestMethod]

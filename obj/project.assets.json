@@ -48,9 +48,6 @@
           "lib/netstandard1.3/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.DependencyValidation.Analyzers/0.11.0": {
-        "type": "package"
-      },
       "Microsoft.NET.Test.Sdk/17.2.0": {
         "type": "package",
         "dependencies": {
@@ -1772,9 +1769,6 @@
       "MaichartConverter/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "Microsoft.DependencyValidation.Analyzers": "0.11.0"
-        },
         "compile": {
           "bin/placeholder/MaichartConverter.dll": {}
         },
@@ -1953,34 +1947,6 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
-      ]
-    },
-    "Microsoft.DependencyValidation.Analyzers/0.11.0": {
-      "sha512": "3xBVhMsM4o9cDpsvmlv78T1FG+cTH8i6bjl1Irk6hoIwEc6Ekoz4mKAR6Hn5M/2G2ZsHNrYBNwGkgF7aiw74UA==",
-      "type": "package",
-      "path": "microsoft.dependencyvalidation.analyzers/0.11.0",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "analyzers/dotnet/Microsoft.DependencyValidation.Analyzers.dll",
-        "analyzers/dotnet/cs/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/de/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/es/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/fr/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/it/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/ja/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/ko/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/pl/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/pt-BR/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/ru/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/tr/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/zh-HANS/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "analyzers/dotnet/zh-HANT/Microsoft.DependencyValidation.Analyzers.resources.dll",
-        "microsoft.dependencyvalidation.analyzers.0.11.0.nupkg.sha512",
-        "microsoft.dependencyvalidation.analyzers.nuspec",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
       ]
     },
     "Microsoft.NET.Test.Sdk/17.2.0": {
@@ -6688,32 +6654,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/neskol/.nuget/packages/": {}
+    "C:\\Users\\Neskol\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
       "projectName": "MaichartConverterUnitTest",
-      "projectPath": "/Users/neskol/Projects/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
-      "packagesPath": "/Users/neskol/.nuget/packages/",
-      "outputPath": "/Users/neskol/Projects/MaichartConverterUnitTest/obj/",
+      "projectPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
+      "packagesPath": "C:\\Users\\Neskol\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/neskol/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Neskol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj": {
-              "projectPath": "/Users/neskol/Projects/MaichartConverter/MaichartConverter.csproj"
+            "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj": {
+              "projectPath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverter\\MaichartConverter.csproj"
             }
           }
         }
@@ -6762,7 +6730,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }
