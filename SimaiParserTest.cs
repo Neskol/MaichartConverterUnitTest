@@ -307,7 +307,7 @@ namespace MaichartConverterUnitTest
             //}
             //Assert.Fail();
             Chart candidate = parser.ChartOfToken(tokensCandidates);
-            MaidataCompiler compiler = new MaidataCompiler();
+            SimaiCompiler compiler = new SimaiCompiler();
             Ma2 toMa2 = new Ma2(candidate);
             Console.WriteLine(toMa2.Compose());
         }
