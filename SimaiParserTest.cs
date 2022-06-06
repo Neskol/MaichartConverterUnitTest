@@ -2,6 +2,7 @@
 using MaichartConverter;
 using static MaichartConverter.SimaiParser;
 using System.Collections.Generic;
+using System.IO;
 using System;
 
 namespace MaichartConverterUnitTest
@@ -288,24 +289,9 @@ namespace MaichartConverterUnitTest
         public void ComprehensiveTest()
         {
             SimaiTokenizer tokenizer = new SimaiTokenizer();
+            tokenizer.UpdateFromPath(@"C:\Users\Neskol\MaiAnalysis\Output\maimai\834_PANDORAPARADOXXX\maidata.txt");
             SimaiParser parser = new SimaiParser();
-            string[] tokensCandidates = tokenizer.Tokens(@"C:\Users\Neskol\source\repos\MaichartConverter\data\SimaiCandidate.txt");
-            List<string> tokensList = new();
-            List<string> tokensSecondTry = new();
-            //foreach (string x in tokensCandidates)
-            //{
-            //    tokensList.AddRange(SimaiParser.EachGroupOfToken(x));
-            //}
-            //foreach (string y in tokensList)
-            //{
-            //    tokensSecondTry.AddRange(SimaiParser.EachGroupOfToken(y));
-            //}
-            string[] tokens = tokensList.ToArray();
-            //foreach (string x in tokens)
-            //{
-            //    Console.WriteLine(x);
-            //}
-            //Assert.Fail();
+            string[] tokensCandidates = tokenizer.ChartCandidates["6"];     
             Chart candidate = parser.ChartOfToken(tokensCandidates);
             SimaiCompiler compiler = new SimaiCompiler();
             Ma2 toMa2 = new Ma2(candidate);
