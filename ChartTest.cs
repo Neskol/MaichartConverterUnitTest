@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MaichartConverter;
-using static MaichartConverter.Chart;
+using MaiLib;
+using static MaiLib.Chart;
 
 namespace MaichartConverterUnitTest
 {

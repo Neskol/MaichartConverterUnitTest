@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MaichartConverter;
-using static MaichartConverter.SimaiParser;
+using MaiLib;
+using static MaiLib.SimaiParser;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -289,7 +289,7 @@ namespace MaichartConverterUnitTest
         public void ComprehensiveTest()
         {
             SimaiTokenizer tokenizer = new SimaiTokenizer();
-            tokenizer.UpdateFromPath(@"C:\Users\Neskol\MaiAnalysis\Output\maimai\834_PANDORAPARADOXXX\maidata.txt");
+            tokenizer.UpdateFromPath(@"../../../data/maidata.txt");
             SimaiParser parser = new SimaiParser();
             string[] tokensCandidates = tokenizer.ChartCandidates["6"];     
             Chart candidate = parser.ChartOfToken(tokensCandidates);

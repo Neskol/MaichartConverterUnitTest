@@ -15,12 +15,4 @@
 <PrivateAssets>all</PrivateAssets>
 </PackageReference>
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\MaichartConverter\MaichartConverter.csproj">
-      <CopyLocal>True</CopyLocal>
-      <CopyLocalSatelliteAssemblies>True</CopyLocalSatelliteAssemblies>
-    </ProjectReference>
-  </ItemGroup>
-
 </Project>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QKunDA2eJ/4I3oGtKOfQtRrmSY+E+sCWGSNYFQW7co7syTadoJDfZ6w6D689jFvILNOC+AR0f83Xp4VttTf8bg==",
+  "dgSpecHash": "838Sv8DGryA8iQTJ4xdDTRj5fCYse8nxP0fFa/d4u7u05rkC02vNqeYzt4DA9Dye0VpPuAqu7wCUH0L5E3ZhfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Neskol\\source\\repos\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
+  "projectFilePath": "C:\\Users\\Neskol\\source\\repos\\Neskol\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Neskol\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Neskol\\.nuget\\packages\\microsoft.codecoverage\\17.2.0\\microsoft.codecoverage.17.2.0.nupkg.sha512",
