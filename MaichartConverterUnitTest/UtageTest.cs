@@ -19,7 +19,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void Ma2GTest()
         {
-            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music000363/000363_03.ma2");
+            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
         }
