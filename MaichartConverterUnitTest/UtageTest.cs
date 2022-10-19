@@ -7,18 +7,43 @@ using System.IO;
 namespace MaichartConverterUnitTest
 {
     [TestClass]
-    public class Ma2Test
+    public class UtageTest
     {
         [TestMethod]
-        public void UtageTest()
+        public void UtageTestNotNull()
         {
             Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000363/000363_00.ma2");
+            Console.WriteLine(new Simai(test).Compose());
+            foreach (Note x in test.Notes)
+            {
+                if (x.NoteGenre.Equals("SLIDE_START"))
+                {
+                    Console.WriteLine("A Slide Start is present:");
+                    Console.WriteLine(x.Compose(1));
+                    Console.WriteLine("It has slide as consecutive: "+(x.ConsecutiveSlide!=null).ToString());
+                }
+            }
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void UtageTestComplicatedOShamaCranky()
+        {
+            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000846/000846_00.ma2");
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
         }
 
         [TestMethod]
         public void Ma2GTest()
+        {
+            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
+            Console.WriteLine(new Simai(test).Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void Ma2GTestComplicateReMasPandora()
         {
             Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
             Console.WriteLine(new Simai(test).Compose());
