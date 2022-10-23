@@ -35,9 +35,35 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void UtageTestComplicatedCSTOShamaCranky()
+        {
+            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000363/000363_00.ma2");
+            // Console.WriteLine(test.Compose());
+            Console.WriteLine(new Simai(test).Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void UtageTestComplicatedCSTStarLightDisco()
+        {
+            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000145/000145_00.ma2");
+            // Console.WriteLine(test.Compose());
+            Console.WriteLine(new Simai(test).Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
         public void Ma2GTest()
         {
             Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
+            Console.WriteLine(new Simai(test).Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void SimaiGTest()
+        {
+            Simai test = new Simai("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
         }
@@ -138,6 +164,13 @@ namespace MaichartConverterUnitTest
             sw2.Close();
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void TestCompareTo()
+        {
+            Console.WriteLine(32.CompareTo(8*4));
+            Assert.IsTrue(true);
         }
     }
 }
