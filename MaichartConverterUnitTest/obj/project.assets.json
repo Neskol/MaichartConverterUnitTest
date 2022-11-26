@@ -6788,34 +6788,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Neskol\\.nuget\\packages\\": {}
+    "/Users/neskol/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Neskol\\source\\repos\\Neskol\\MaichartConverterUnitTest\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
+      "projectUniqueName": "/Users/neskol/source/repos/Neskol/MaichartConverterUnitTest/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
       "projectName": "MaichartConverterUnitTest",
-      "projectPath": "c:\\Users\\Neskol\\source\\repos\\Neskol\\MaichartConverterUnitTest\\MaichartConverterUnitTest\\MaichartConverterUnitTest.csproj",
-      "packagesPath": "C:\\Users\\Neskol\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Neskol\\source\\repos\\Neskol\\MaichartConverterUnitTest\\MaichartConverterUnitTest\\obj\\",
+      "projectPath": "/Users/neskol/source/repos/Neskol/MaichartConverterUnitTest/MaichartConverterUnitTest/MaichartConverterUnitTest.csproj",
+      "packagesPath": "/Users/neskol/.nuget/packages/",
+      "outputPath": "/Users/neskol/source/repos/Neskol/MaichartConverterUnitTest/MaichartConverterUnitTest/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Neskol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/neskol/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Users\\Neskol\\source\\repos\\Neskol\\MaichartConverterUnitTest\\MaiLib\\MaiLib.csproj": {
-              "projectPath": "c:\\Users\\Neskol\\source\\repos\\Neskol\\MaichartConverterUnitTest\\MaiLib\\MaiLib.csproj"
+            "/Users/neskol/source/repos/Neskol/MaichartConverterUnitTest/MaiLib/MaiLib.csproj": {
+              "projectPath": "/Users/neskol/source/repos/Neskol/MaichartConverterUnitTest/MaiLib/MaiLib.csproj"
             }
           }
         }
@@ -6860,12 +6859,22 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.11, 6.0.11]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.11, 6.0.11]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
