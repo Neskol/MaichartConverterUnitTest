@@ -29,7 +29,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void UtageTestComplicatedOShamaCranky()
         {
-            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000846/000846_01-T.ma2");
+            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000846/000846_00.ma2");
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
         }
@@ -63,7 +63,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void SimaiGTest()
         {
-            Simai test = new Simai("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
+            Chart test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
         }
