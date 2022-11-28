@@ -298,11 +298,18 @@ namespace MaichartConverterUnitTest
             Console.WriteLine(toMa2.Compose());
         }
 
-        //[TestMethod]
-        //public void EachNoteOfToken1()
-        //{
-        //    Assert.IsTrue(true);
-        //}
+        [TestMethod]
+        public void ComprehensiveTestComplex()
+        {
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            tokenizer.UpdateFromPath(@"../../../data/maidata-bpmChanges.txt");
+            SimaiParser parser = new SimaiParser();
+            string[] tokensCandidates = tokenizer.ChartCandidates["5"];
+            Chart candidate = parser.ChartOfToken(tokensCandidates);
+            SimaiCompiler compiler = new SimaiCompiler();
+            Ma2 toMa2 = new Ma2(candidate);
+            Console.WriteLine(toMa2.Compose());
+        }
     }
 }
 
