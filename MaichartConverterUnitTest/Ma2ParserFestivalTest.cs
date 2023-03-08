@@ -14,5 +14,15 @@ namespace MaichartConverterUnitTest
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
         }
+
+        [TestMethod]
+        public void FestivalTestTaps()
+        {
+            Ma2Tokenizer tokenizer = new Ma2Tokenizer();
+            Ma2Parser parser = new Ma2Parser();
+            Ma2 test = (Ma2)parser.ChartOfToken(tokenizer.Tokens("../../../data/DXFestivalTestMa2.txt"));
+            Console.WriteLine(new Simai(test).Compose());
+            Assert.IsNotNull(test);
+        }
     }
 }
