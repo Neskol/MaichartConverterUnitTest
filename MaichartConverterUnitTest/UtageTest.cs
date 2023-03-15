@@ -13,14 +13,17 @@ namespace MaichartConverterUnitTest
         public void UtageTestNotNull()
         {
             Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000363/000363_00.ma2");
-            Console.WriteLine(new Simai(test).Compose());
+            Simai candidate = new Simai(test);
+            candidate.ComposeSlideGroup();
+            candidate.ComposeSlideEachGroup();
+            candidate.Update();
+            Console.WriteLine(candidate.Compose());
             foreach (Note x in test.Notes)
             {
                 if (x.NoteGenre.Equals("SLIDE_START"))
                 {
                     Console.WriteLine("A Slide Start is present:");
                     Console.WriteLine(x.Compose(1));
-                    Console.WriteLine("It has slide as consecutive: "+(x.ConsecutiveSlide!=null).ToString());
                 }
             }
             Assert.IsNotNull(test);

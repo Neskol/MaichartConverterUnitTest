@@ -44,8 +44,6 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
             Note start = new Tap("STR",0,96,"1");
             Note x = new Slide("SLR", 0, 192, "1", 24, 96, "3");
-            start.ConsecutiveSlide = x;
-            x.SlideStart = start;
             chart.Notes.Add(x);
             chart.Update();
             double expectedTick = Note.GetBPMTimeUnit(60) * 192;
@@ -107,8 +105,6 @@ namespace MaichartConverterUnitTest
         {
             Note start = new Tap("STR", 0, 0, "0");
             Note slide = new Slide("SLL",0,0,"0",96,96,"6");
-            slide.SlideStart = start;
-            start.ConsecutiveSlide = slide;
             string expected = "1V37[4:1]";
             string startCompose = start.Compose(0);
             string slideCompose = slide.Compose(0);

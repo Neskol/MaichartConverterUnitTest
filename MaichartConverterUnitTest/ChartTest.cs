@@ -180,8 +180,6 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
             Note start = new Tap("STR", 0, 96, "1");
             Note x = new Slide("SLR", 0, 192, "1", 24, 96, "3");
-            x.SlideStart = start;
-            start.ConsecutiveSlide = x;
             chart.Notes.Add(x);
             chart.Notes.Add(start);
             chart.Update();
@@ -250,8 +248,6 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
             Note start = new Tap("STR", 0, 192, "1");
             Note x = new Slide("SLR", 0, 0, "1", 384, 384, "3");
-            start.ConsecutiveSlide = x;
-            x.SlideStart = start;
             chart.Notes.Add(x);
             chart.Update();
             double expectedTick = 60.0;
@@ -263,6 +259,20 @@ namespace MaichartConverterUnitTest
             Assert.AreEqual(expectedTick, actualTick);
             Assert.AreEqual(expectedWait, actualWait);
             Assert.AreEqual(expectedLast, actualLast);
+        }
+
+        [TestMethod]
+        public void TestSlideGroup()
+        {
+            Chart candidate = new Ma2("../../../data/DXFestivalTestMa2.ma2");
+            foreach (Note x in candidate.Notes)
+            {
+                if (x.NoteGenre.Equals("SLIDE"))
+                {
+                    Console.WriteLine(x.Compose(1));
+                    Assert.IsTrue(x.NoteGenre.Equals("SLIDE"));
+                }
+            }
         }
     }
 }
