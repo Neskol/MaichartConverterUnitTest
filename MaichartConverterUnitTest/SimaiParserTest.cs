@@ -286,12 +286,36 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void ExtractConnectingEachSlides()
+        {
+            string token = "4qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]*pp8[24:5]qq2[0##0.2151]";
+            List<string> expected = new() { "4_", "qq8[24:5]", "pp6[0##0.2151]CN", "pp7[0##0.2151]CN", "pp8[24:5]", "qq2[0##0.2151]CN" };
+            List<string> actual = ExtractEachSlides(token);
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i], actual[i]);
+            }
+        }
+
+        [TestMethod]
+        public void ParseConnectingEachSlides()
+        {
+            string token = "(120){1}4qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]*pp8[24:5]qq2[0##0.2151],E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            SimaiParser parser = new SimaiParser();
+            Chart test = new Simai(parser.ChartOfToken(tokenizer.TokensFromText(token)));
+            Console.WriteLine(test.Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
         public void ComprehensiveTest()
         {
             SimaiTokenizer tokenizer = new SimaiTokenizer();
             tokenizer.UpdateFromPath(@"../../../data/maidata.txt");
             SimaiParser parser = new SimaiParser();
-            string[] tokensCandidates = tokenizer.ChartCandidates["6"];     
+            string[] tokensCandidates = tokenizer.ChartCandidates["6"];
             Chart candidate = parser.ChartOfToken(tokensCandidates);
             SimaiCompiler compiler = new SimaiCompiler();
             Ma2 toMa2 = new Ma2(candidate);
