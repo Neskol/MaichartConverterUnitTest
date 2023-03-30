@@ -289,7 +289,7 @@ namespace MaichartConverterUnitTest
         public void ExtractConnectingEachSlides()
         {
             string token = "4qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]*pp8[24:5]qq2[0##0.2151]";
-            List<string> expected = new() { "4_", "qq8[24:5]", "pp6[0##0.2151]CN", "pp7[0##0.2151]CN", "pp8[24:5]", "qq2[0##0.2151]CN" };
+            List<string> expected = new() { "4_", "qq8[24:5]", "pp6[0##0.2151]CN7", "pp7[0##0.2151]CN5", "pp8[24:5]", "qq2[0##0.2151]CN7" };
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -301,7 +301,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void ParseConnectingEachSlides()
         {
-            string token = "(120){1}4qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]*pp8[24:5]qq2[0##0.2151],E";
+            string token = "(120){1}4b>8[64:35]v2[0##0.4536]v4[0##0.4536]*<8[64:35]v6[0##0.4536]v4[0##0.4536],E";
             SimaiTokenizer tokenizer = new SimaiTokenizer();
             SimaiParser parser = new SimaiParser();
             Chart test = new Simai(parser.ChartOfToken(tokenizer.TokensFromText(token)));
@@ -319,7 +319,20 @@ namespace MaichartConverterUnitTest
             Chart candidate = parser.ChartOfToken(tokensCandidates);
             SimaiCompiler compiler = new SimaiCompiler();
             Ma2 toMa2 = new Ma2(candidate);
-            Console.WriteLine(toMa2.Compose());
+            Console.WriteLine(new Simai(toMa2).Compose());
+        }
+
+        [TestMethod]
+        public void ComprehensiveTestUma()
+        {
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            tokenizer.UpdateFromPath(@"../../../data/maidata_uma.txt");
+            SimaiParser parser = new SimaiParser();
+            string[] tokensCandidates = tokenizer.ChartCandidates["6"];
+            Chart candidate = parser.ChartOfToken(tokensCandidates);
+            SimaiCompiler compiler = new SimaiCompiler();
+            Ma2 toMa2 = new Ma2(candidate);
+            Console.WriteLine(new Simai(toMa2).Compose());
         }
 
         [TestMethod]
