@@ -17,7 +17,11 @@ namespace MaichartConverterUnitTest
             // slideGroupCandidate.ComposeSlideGroup();
             // slideGroupCandidate.ComposeSlideEachGroup();
             slideGroupCandidate.Update();
-            Console.WriteLine(slideGroupCandidate.Compose());
+            foreach (Note x in slideGroupCandidate.Notes)
+            {
+                Console.WriteLine("{0}, {1}", x.Compose(1),x.TickTimeStamp);
+            }
+            // Console.WriteLine(slideGroupCandidate.Compose());
             Assert.IsNotNull(test);
         }
 
