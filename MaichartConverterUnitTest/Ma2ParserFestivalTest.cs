@@ -10,17 +10,17 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void FestivalTestTanaka()
         {
-            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-1.30Candidate/music/music011489/011489_03.ma2");
+            Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music011489/011489_03.ma2");
             Simai slideGroupCandidate = new Simai(test);
             // Console.WriteLine("BEFORE: ");
             // Console.WriteLine(slideGroupCandidate.Compose());
             // slideGroupCandidate.ComposeSlideGroup();
             // slideGroupCandidate.ComposeSlideEachGroup();
             slideGroupCandidate.Update();
-            foreach (Note x in slideGroupCandidate.Notes)
-            {
-                Console.WriteLine("{0}, {1}", x.Compose(1),x.TickTimeStamp);
-            }
+            // foreach (Note x in slideGroupCandidate.Notes)
+            // {
+            //     Console.WriteLine("{0}, {1}", x.Compose(1),x.TickTimeStamp);
+            // }
             // Console.WriteLine(slideGroupCandidate.Compose());
             Assert.IsNotNull(test);
         }
