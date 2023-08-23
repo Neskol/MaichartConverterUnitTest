@@ -19,7 +19,7 @@ namespace MaichartConverterUnitTest
             slideGroupCandidate.Update();
             // foreach (Note x in slideGroupCandidate.Notes)
             // {
-            //     Console.WriteLine("{0}, {1}", x.Compose(1),x.TickTimeStamp);
+            //     Console.WriteLine("{0}, {1}", x.Compose(1),x.TimeStamp);
             // }
             // Console.WriteLine(slideGroupCandidate.Compose());
             Assert.IsNotNull(test);
