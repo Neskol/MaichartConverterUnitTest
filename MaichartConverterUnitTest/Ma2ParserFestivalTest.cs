@@ -47,16 +47,15 @@ namespace MaichartConverterUnitTest
             Ma2 test = new Ma2("../../../data/011469_02.ma2");
             Simai slideGroupCandidate = new Simai(test);
             Console.WriteLine(test.Compose());
-            // Console.WriteLine("BEFORE: ");
-            // Console.WriteLine(slideGroupCandidate.Compose());
-            // slideGroupCandidate.ComposeSlideGroup();
-            // slideGroupCandidate.ComposeSlideEachGroup();
-            // slideGroupCandidate.Update();
-            // foreach (Note x in slideGroupCandidate.Notes)
-            // {
-            //     Console.WriteLine("{0}, {1}", x.Compose(1),x.TickTimeStamp);
-            // }
-            // Console.WriteLine(slideGroupCandidate.Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void FestivalTest411SlideGroup()
+        {
+            Ma2 test = new Ma2("../../../data/DXFestivalUnsyncedGroup.txt");
+            Simai slideGroupCandidate = new Simai(test);
+            Console.WriteLine(slideGroupCandidate.Compose());
             Assert.IsNotNull(test);
         }
 
