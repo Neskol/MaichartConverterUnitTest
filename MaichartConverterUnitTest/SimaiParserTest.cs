@@ -313,13 +313,13 @@ namespace MaichartConverterUnitTest
         public void ComprehensiveTest()
         {
             SimaiTokenizer tokenizer = new SimaiTokenizer();
-            tokenizer.UpdateFromPath(@"../../../data/maidata.txt");
+            tokenizer.UpdateFromPath(@"../../../data/maidata_pandora.txt");
             SimaiParser parser = new SimaiParser();
             string[] tokensCandidates = tokenizer.ChartCandidates["6"];
             Chart candidate = parser.ChartOfToken(tokensCandidates);
             SimaiCompiler compiler = new SimaiCompiler();
             Ma2 toMa2 = new Ma2(candidate);
-            Console.WriteLine(new Simai(toMa2).Compose());
+            Console.WriteLine(toMa2.Compose());
         }
 
         [TestMethod]
