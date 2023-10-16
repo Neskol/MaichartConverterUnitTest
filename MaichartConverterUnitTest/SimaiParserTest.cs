@@ -1,8 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
 using static MaiLib.SimaiParser;
+using static MaiLib.NoteEnum;
 using System.Collections.Generic;
-using System.IO;
 using System;
 
 namespace MaichartConverterUnitTest
@@ -17,7 +17,7 @@ namespace MaichartConverterUnitTest
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
             string expectedKey = "2";
-            string expectedType = "HLD";
+            NoteType expectedType = NoteType.HLD;
             int expectedBar = 0;
             int expectedTick = 0;
             int expectedLastLength = 96;
@@ -37,7 +37,7 @@ namespace MaichartConverterUnitTest
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
             string expectedKey = "2";
-            string expectedType = "XHO";
+            NoteType expectedType = NoteType.XHO;
             int expectedBar = 0;
             int expectedTick = 0;
             int expectedLastLength = 96;
@@ -57,7 +57,7 @@ namespace MaichartConverterUnitTest
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
             string expectedKey = "0C";
-            string expectedType = "THO";
+            NoteType expectedType = NoteType.THO;
             int expectedBar = 0;
             int expectedTick = 0;
             int expectedLastLength = 96;
@@ -75,12 +75,12 @@ namespace MaichartConverterUnitTest
         public void SlideOfTokenWithBar0Tick0SI_Test()
         {
             string slideToken = "-3[4:1]";
-            Tap previousSlideStart = new Tap("STR", 0, 0, "0");
+            Tap previousSlideStart = new Tap(NoteType.STR, 0, 0, "0");
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 0, 0, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "2";
-            string expectedType = "SI_";
+            NoteType expectedType = NoteType.SI_;
             int expectedBar = 0;
             int expectedTick = 0;
             int expectedWaitLength = 96;
@@ -100,12 +100,12 @@ namespace MaichartConverterUnitTest
         public void SlideOfTokenWithBar0Tick0SI_TestUsingSeconds()
         {
             string slideToken = "-3[0.5##0.5]";
-            Tap previousSlideStart = new Tap("STR", 0, 0, "0");
+            Tap previousSlideStart = new Tap(NoteType.STR, 0, 0, "0");
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 0, 0, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "2";
-            string expectedType = "SI_";
+            NoteType expectedType = NoteType.SI_;
             int expectedBar = 0;
             int expectedTick = 0;
             int expectedWaitLength = 96;
@@ -125,12 +125,12 @@ namespace MaichartConverterUnitTest
         public void SlideOfTokenWithBar1Tick96SF_Test()
         {
             string slideToken = "w3[4:1]";
-            Tap previousSlideStart = new Tap("STR", 1, 96, "0");
+            Tap previousSlideStart = new Tap(NoteType.STR, 1, 96, "0");
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "2";
-            string expectedType = "SF_";
+            NoteType expectedType = NoteType.SF_;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -150,12 +150,13 @@ namespace MaichartConverterUnitTest
         public void SlideOfTokenWithBar1Tick96SLLTest()
         {
             string slideToken = "V35[4:1]";
-            Tap previousSlideStart = new Tap("BRK", 1, 96, "0");
+            Tap previousSlideStart = new Tap(NoteType.TAP, 1, 96, "0");
+            previousSlideStart.NoteSpecialState = SpecialState.Break;
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "4";
-            string expectedType = "SLL";
+            NoteType expectedType = NoteType.SLL;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -175,12 +176,13 @@ namespace MaichartConverterUnitTest
         public void SlideOfTokenWithRealSLLTest()
         {
             string slideToken = "V37[4:1]";
-            Tap previousSlideStart = new Tap("BRK", 1, 96, "0");
+            Tap previousSlideStart = new Tap(NoteType.TAP, 1, 96, "0");
+            previousSlideStart.NoteSpecialState = SpecialState.Break;
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "6";
-            string expectedType = "SLL";
+            NoteType expectedType = NoteType.SLL;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -200,12 +202,13 @@ namespace MaichartConverterUnitTest
         public void SlideOfTokenWithBar1Tick96SLRTest()
         {
             string slideToken = "V75[4:1]";
-            Tap previousSlideStart = new Tap("BRK", 1, 96, "0");
+            Tap previousSlideStart = new Tap(NoteType.TAP, 1, 96, "0");
+            previousSlideStart.NoteSpecialState = SpecialState.Break;
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "4";
-            string expectedType = "SLR";
+            NoteType expectedType = NoteType.SLR;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;

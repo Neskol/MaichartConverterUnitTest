@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
+using static MaiLib.NoteEnum;
 
 namespace MaichartConverterUnitTest
 {
@@ -25,7 +26,7 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note x = new Tap("TAP", 0, 192, "1");
+            Note x = new Tap(NoteType.TAP, 0, 192, "1");
             chart.Notes.Add(x);
             chart.Update();
             double expected = Note.GetBPMTimeUnit(60) * 192;
@@ -42,8 +43,8 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note start = new Tap("STR",0,96,"1");
-            Note x = new Slide("SLR", 0, 192, "1", 24, 96, "3");
+            Note start = new Tap(NoteType.STR, 0, 96, "1");
+            Note x = new Slide(NoteType.SLR, 0, 192, "1", 24, 96, "3");
             chart.Notes.Add(x);
             chart.Update();
             double expectedTick = Note.GetBPMTimeUnit(60) * 192;
@@ -68,7 +69,7 @@ namespace MaichartConverterUnitTest
             bpmChanges.Add(new BPMChange(1, 0, 120.0));
             bpmChanges.Add(new BPMChange(2, 0, 240.0));
             bpmChanges.Update();
-            Note x = new Tap("TAP", 0, 192, "1");
+            Note x = new Tap(NoteType.TAP, 0, 192, "1");
             x.BPMChangeNotes = bpmChanges.ChangeNotes;
             double expected = Note.GetBPMTimeUnit(60) * 192;
             int bar0Tick192 = 192;
@@ -84,7 +85,7 @@ namespace MaichartConverterUnitTest
             bpmChanges.Add(new BPMChange(1, 0, 120.0));
             bpmChanges.Add(new BPMChange(2, 0, 240.0));
             bpmChanges.Update();
-            Note x = new Slide("SLR", 0, 192, "1", 24, 96, "3");
+            Note x = new Slide(NoteType.SLR, 0, 192, "1", 24, 96, "3");
             x.BPMChangeNotes = bpmChanges.ChangeNotes;
             double expectedTick = Note.GetBPMTimeUnit(60) * 192;
             double expectedWait = Note.GetBPMTimeUnit(60) * (192 + 24);
@@ -103,8 +104,8 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void SlideComposeTestSLL1V37()
         {
-            Note start = new Tap("STR", 0, 0, "0");
-            Note slide = new Slide("SLL",0,0,"0",96,96,"6");
+            Note start = new Tap(NoteType.STR, 0, 0, "0");
+            Note slide = new Slide(NoteType.SLL, 0, 0, "0", 96, 96, "6");
             string expected = "1V37[4:1]";
             string startCompose = start.Compose(0);
             string slideCompose = slide.Compose(0);

@@ -1,7 +1,7 @@
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
-using static MaiLib.Chart;
+using static MaiLib.NoteEnum;
 using System.IO;
 
 namespace MaichartConverterUnitTest
@@ -86,7 +86,7 @@ namespace MaichartConverterUnitTest
             StreamWriter sw = new StreamWriter("../../../data/DX363BeforeRotate.txt", false);
             sw.WriteLine(test.Compose());
             sw.Close();
-            test.RotateNotes("UpSideDown");
+            test.RotateNotes(FlipMethod.UpSideDown);
             StreamWriter sw2 = new StreamWriter("../../../data/DX363AfterRotate.txt", false);
             sw2.WriteLine(test.Compose());
             sw2.Close();
@@ -101,7 +101,7 @@ namespace MaichartConverterUnitTest
             StreamWriter sw = new StreamWriter("../../../data/DX363BeforeRotate.txt", false);
             sw.WriteLine(test.Compose());
             sw.Close();
-            test.RotateNotes("LeftToRight");
+            test.RotateNotes(FlipMethod.LeftToRight);
             StreamWriter sw2 = new StreamWriter("../../../data/DX363AfterRotate.txt", false);
             sw2.WriteLine(test.Compose());
             sw2.Close();

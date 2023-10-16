@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
 using static MaiLib.Chart;
+using static MaiLib.NoteEnum;
 
 namespace MaichartConverterUnitTest
 {
@@ -161,7 +162,7 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note x = new Tap("TAP", 0, 192, "1");
+            Note x = new Tap(NoteType.TAP, 0, 192, "1");
             chart.Notes.Add(x);
             chart.Update();
             double expected = Chart.GetBPMTimeUnit(60) * 192;
@@ -178,8 +179,8 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note start = new Tap("STR", 0, 96, "1");
-            Note x = new Slide("SLR", 0, 192, "1", 24, 96, "3");
+            Note start = new Tap(NoteType.STR, 0, 96, "1");
+            Note x = new Slide(NoteType.SLR, 0, 192, "1", 24, 96, "3");
             chart.Notes.Add(x);
             chart.Notes.Add(start);
             chart.Update();
@@ -230,7 +231,7 @@ namespace MaichartConverterUnitTest
             Chart chart = new Ma2();
             chart.BPMChanges = new BPMChanges();
             chart.BPMChanges.Add(new BPMChange(0, 0, 120));
-            Note x = new Tap("TAP", 1, 0, "1");
+            Note x = new Tap(NoteType.TAP, 1, 0, "1");
             chart.Notes.Add(x);
             chart.Update();
             double expected = 120.0;
@@ -246,8 +247,8 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note start = new Tap("STR", 0, 192, "1");
-            Note x = new Slide("SLR", 0, 0, "1", 384, 384, "3");
+            Note start = new Tap(NoteType.STR, 0, 192, "1");
+            Note x = new Slide(NoteType.SLR, 0, 0, "1", 384, 384, "3");
             chart.Notes.Add(x);
             chart.Update();
             double expectedTick = 60.0;
