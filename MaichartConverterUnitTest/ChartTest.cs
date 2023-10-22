@@ -268,12 +268,28 @@ namespace MaichartConverterUnitTest
             Chart candidate = new Ma2("../../../data/DXFestivalTestMa2.ma2");
             foreach (Note x in candidate.Notes)
             {
-                if (x.NoteGenre.Equals("SLIDE"))
+                if (x.NoteGenre is NoteGenre.SLIDE)
                 {
                     Console.WriteLine(x.Compose(1));
-                    Assert.IsTrue(x.NoteGenre.Equals("SLIDE"));
+                    Assert.IsTrue(x.NoteGenre is NoteGenre.SLIDE);
                 }
             }
+        }
+
+        [TestMethod]
+        public void TestUpdateNoteTypeChange()
+        {
+            Chart candidateChart = new Ma2();
+            BPMChange changeNote = new BPMChange(0, 0, 120.0);
+            Note tap = new Tap(NoteType.TAP, 1, 0, "1");
+            Note rest = new Rest(1, 0);
+            candidateChart.BPMChanges = new BPMChanges();
+            candidateChart.BPMChanges.Add(changeNote);
+            candidateChart.Notes.Add(tap);
+            candidateChart.Notes.Add(rest);
+            candidateChart.Update();
+            Console.WriteLine(new Simai(candidateChart).Compose());
+            Assert.IsNotNull(candidateChart);
         }
     }
 }

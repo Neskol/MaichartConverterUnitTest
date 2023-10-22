@@ -20,7 +20,7 @@ namespace MaichartConverterUnitTest
             Console.WriteLine(candidate.Compose());
             foreach (Note x in test.Notes)
             {
-                if (x.NoteGenre.Equals("SLIDE_START"))
+                if (x.NoteSpecificGenre is NoteSpecificGenre.SLIDE_START)
                 {
                     Console.WriteLine("A Slide Start is present:");
                     Console.WriteLine(x.Compose(1));
@@ -131,7 +131,7 @@ namespace MaichartConverterUnitTest
             StreamWriter sw = new StreamWriter("../../../data/DX363Before1-96Offset.txt", false);
             sw.WriteLine(test.Compose());
             sw.Close();
-            test.ShiftByOffset(1,96);
+            test.ShiftByOffset(1, 96);
             StreamWriter sw2 = new StreamWriter("../../../data/DX363After1-96Offset.txt", false);
             sw2.WriteLine(test.Compose());
             sw2.Close();
@@ -172,7 +172,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void TestCompareTo()
         {
-            Console.WriteLine(32.CompareTo(8*4));
+            Console.WriteLine(32.CompareTo(8 * 4));
             Assert.IsTrue(true);
         }
     }
