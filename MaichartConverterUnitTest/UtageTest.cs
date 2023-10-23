@@ -38,7 +38,7 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
-        public void UtageTestComplicatedCSTOShamaCranky()
+        public void UtageTestComplicatedCSTOShamaUtage()
         {
             Ma2 test = new Ma2("/Users/Neskol/MaiAnalysis/A000-Utage/music/music000363/000363_00.ma2");
             // Console.WriteLine(test.Compose());
@@ -64,9 +64,17 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void OshamaDXBar6Test()
+        {
+            Ma2 test = new Ma2("../../../data/OshamaDXBar6.ma2");
+            Console.WriteLine(new Simai(test).Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
         public void SimaiGTest()
         {
-            Chart test = new Ma2("/Users/Neskol/MaiAnalysis/A000/music/music010363/010363_03.ma2");
+            Chart test = new Ma2("../../../data/010363_03.ma2");
             Console.WriteLine(new Simai(test).Compose());
             Assert.IsNotNull(test);
         }

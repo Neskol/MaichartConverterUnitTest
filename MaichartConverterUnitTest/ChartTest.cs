@@ -281,12 +281,14 @@ namespace MaichartConverterUnitTest
         {
             Chart candidateChart = new Ma2();
             BPMChange changeNote = new BPMChange(0, 0, 120.0);
-            Note tap = new Tap(NoteType.TAP, 1, 0, "1");
-            Note rest = new Rest(1, 0);
+            Note tap1 = new Tap(NoteType.TAP, 1, 0, "1");
+            Note tap2 = new Tap(NoteType.TAP, 1, 1, "2");
+            Note tap3 = new Tap(NoteType.TAP, 1, 1, "3");
             candidateChart.BPMChanges = new BPMChanges();
             candidateChart.BPMChanges.Add(changeNote);
-            candidateChart.Notes.Add(tap);
-            candidateChart.Notes.Add(rest);
+            candidateChart.Notes.Add(tap1);
+            candidateChart.Notes.Add(tap2);
+            candidateChart.Notes.Add(tap3);
             candidateChart.Update();
             Console.WriteLine(new Simai(candidateChart).Compose());
             Assert.IsNotNull(candidateChart);

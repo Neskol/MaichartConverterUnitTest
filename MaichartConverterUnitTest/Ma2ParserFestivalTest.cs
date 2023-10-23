@@ -12,17 +12,20 @@ namespace MaichartConverterUnitTest
         {
             Ma2 test = new Ma2("../../../data/011489_03.ma2");
             Simai slideGroupCandidate = new Simai(test);
-            // Console.WriteLine("BEFORE: ");
-            // Console.WriteLine(slideGroupCandidate.Compose());
-            // slideGroupCandidate.ComposeSlideGroup();
-            // slideGroupCandidate.ComposeSlideEachGroup();
             slideGroupCandidate.Update();
+            Console.WriteLine(test.Compose());
             Console.WriteLine(slideGroupCandidate.Compose());
-            // foreach (Note x in slideGroupCandidate.Notes)
-            // {
-            //     Console.WriteLine("{0}, {1}", x.Compose(1),x.TimeStamp);
-            // }
-            // Console.WriteLine(slideGroupCandidate.Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void FestivalTestTanakaBar36()
+        {
+            Ma2 test = new Ma2("../../../data/TanakaBar36.ma2");
+            Simai slideGroupCandidate = new Simai(test);
+            slideGroupCandidate.Update();
+            Console.WriteLine(test.Compose());
+            Console.WriteLine(slideGroupCandidate.Compose());
             Assert.IsNotNull(test);
         }
 
