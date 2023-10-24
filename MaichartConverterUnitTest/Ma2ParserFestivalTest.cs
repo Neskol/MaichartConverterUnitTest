@@ -30,6 +30,17 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void FestivalTestInternetOverdose()
+        {
+            Ma2 test = new Ma2("../../../data/011568_03.ma2");
+            Simai slideGroupCandidate = new Simai(test);
+            slideGroupCandidate.Update();
+            // Console.WriteLine(test.Compose());
+            Console.WriteLine(slideGroupCandidate.Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
         public void FestivalTestTanakaSlideGroup()
         {
             Ma2 test = new Ma2("../../../data/Ma2UtageNSTSlides.ma2");
