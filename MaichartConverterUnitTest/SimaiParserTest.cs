@@ -37,13 +37,15 @@ namespace MaichartConverterUnitTest
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
             string expectedKey = "2";
-            NoteType expectedType = NoteType.XHO;
+            NoteType expectedType = NoteType.HLD;
+            SpecialState expectedSpecialState = SpecialState.EX;
             int expectedBar = 0;
             int expectedTick = 0;
             int expectedLastLength = 96;
             double expectedBPM = 120.0;
             Assert.AreEqual(expectedKey, x.Key, "Key does not match!");
             Assert.AreEqual(expectedType, x.NoteType, "Hold Type does not match!");
+            Assert.AreEqual(expectedSpecialState, x.NoteSpecialState, "Hold State does not match!");
             Assert.AreEqual(expectedBar, x.Bar, "Bar does not match!");
             Assert.AreEqual(expectedTick, x.Tick, "Tick does not match!");
             Assert.AreEqual(expectedLastLength, x.LastLength, "Last Length does not match!");
