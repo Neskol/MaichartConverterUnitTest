@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
 using static MaiLib.Chart;
+using static MaiLib.NoteEnum;
 
 namespace MaichartConverterUnitTest
 {
@@ -161,7 +162,7 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note x = new Tap("TAP", 0, 192, "1");
+            Note x = new Tap(NoteType.TAP, 0, 192, "1");
             chart.Notes.Add(x);
             chart.Update();
             double expected = Chart.GetBPMTimeUnit(60) * 192;
@@ -178,8 +179,8 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note start = new Tap("STR", 0, 96, "1");
-            Note x = new Slide("SLR", 0, 192, "1", 24, 96, "3");
+            Note start = new Tap(NoteType.STR, 0, 96, "1");
+            Note x = new Slide(NoteType.SLR, 0, 192, "1", 24, 96, "3");
             chart.Notes.Add(x);
             chart.Notes.Add(start);
             chart.Update();
@@ -230,7 +231,7 @@ namespace MaichartConverterUnitTest
             Chart chart = new Ma2();
             chart.BPMChanges = new BPMChanges();
             chart.BPMChanges.Add(new BPMChange(0, 0, 120));
-            Note x = new Tap("TAP", 1, 0, "1");
+            Note x = new Tap(NoteType.TAP, 1, 0, "1");
             chart.Notes.Add(x);
             chart.Update();
             double expected = 120.0;
@@ -246,8 +247,8 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            Note start = new Tap("STR", 0, 192, "1");
-            Note x = new Slide("SLR", 0, 0, "1", 384, 384, "3");
+            Note start = new Tap(NoteType.STR, 0, 192, "1");
+            Note x = new Slide(NoteType.SLR, 0, 0, "1", 384, 384, "3");
             chart.Notes.Add(x);
             chart.Update();
             double expectedTick = 60.0;
@@ -267,12 +268,30 @@ namespace MaichartConverterUnitTest
             Chart candidate = new Ma2("../../../data/DXFestivalTestMa2.ma2");
             foreach (Note x in candidate.Notes)
             {
-                if (x.NoteGenre.Equals("SLIDE"))
+                if (x.NoteGenre is NoteGenre.SLIDE)
                 {
                     Console.WriteLine(x.Compose(1));
-                    Assert.IsTrue(x.NoteGenre.Equals("SLIDE"));
+                    Assert.IsTrue(x.NoteGenre is NoteGenre.SLIDE);
                 }
             }
+        }
+
+        [TestMethod]
+        public void TestUpdateNoteTypeChange()
+        {
+            Chart candidateChart = new Ma2();
+            BPMChange changeNote = new BPMChange(0, 0, 120.0);
+            Note tap1 = new Tap(NoteType.TAP, 1, 0, "1");
+            Note tap2 = new Tap(NoteType.TAP, 1, 1, "2");
+            Note tap3 = new Tap(NoteType.TAP, 1, 1, "3");
+            candidateChart.BPMChanges = new BPMChanges();
+            candidateChart.BPMChanges.Add(changeNote);
+            candidateChart.Notes.Add(tap1);
+            candidateChart.Notes.Add(tap2);
+            candidateChart.Notes.Add(tap3);
+            candidateChart.Update();
+            Console.WriteLine(new Simai(candidateChart).Compose());
+            Assert.IsNotNull(candidateChart);
         }
     }
 }
