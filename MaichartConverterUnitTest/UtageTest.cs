@@ -2,6 +2,7 @@ using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
 using static MaiLib.NoteEnum;
+using static MaiLib.ChartEnum;
 using System.IO;
 
 namespace MaichartConverterUnitTest
@@ -23,7 +24,7 @@ namespace MaichartConverterUnitTest
                 if (x.NoteSpecificGenre is NoteSpecificGenre.SLIDE_START)
                 {
                     Console.WriteLine("A Slide Start is present:");
-                    Console.WriteLine(x.Compose(1));
+                    Console.WriteLine(x.Compose(ChartVersion.Debug));
                 }
             }
             Assert.IsNotNull(test);

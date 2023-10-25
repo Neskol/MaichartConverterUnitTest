@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
 using static MaiLib.NoteEnum;
+using static MaiLib.ChartEnum;
 
 namespace MaichartConverterUnitTest
 {
@@ -107,8 +108,8 @@ namespace MaichartConverterUnitTest
             Note start = new Tap(NoteType.STR, 0, 0, "0");
             Note slide = new Slide(NoteType.SLL, 0, 0, "0", 96, 96, "6");
             string expected = "1V37[4:1]";
-            string startCompose = start.Compose(0);
-            string slideCompose = slide.Compose(0);
+            string startCompose = start.Compose(ChartVersion.Simai);
+            string slideCompose = slide.Compose(ChartVersion.Simai);
             string actual = startCompose + slideCompose;
             Assert.AreEqual(expected, actual);
         }
