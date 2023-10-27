@@ -113,6 +113,15 @@ namespace MaichartConverterUnitTest
             string actual = startCompose + slideCompose;
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void HoldSpecialEffectTest()
+        {
+            Note touchHold = new Hold(NoteType.THO, 0, 0, "0C", 384);
+            // touchHold.SpecialEffect = true;
+            string expected = "C1h[1:1]";
+            Assert.AreEqual(expected,touchHold.Compose(ChartVersion.Simai));
+        }
     }
 }
 

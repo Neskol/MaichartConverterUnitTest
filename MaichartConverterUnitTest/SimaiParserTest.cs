@@ -309,8 +309,10 @@ namespace MaichartConverterUnitTest
             string token = "(120){1}4b>8[64:35]v2[0##0.4536]v4[0##0.4536]*<8[64:35]v6[0##0.4536]v4[0##0.4536],E";
             SimaiTokenizer tokenizer = new SimaiTokenizer();
             SimaiParser parser = new SimaiParser();
-            Chart test = new Simai(parser.ChartOfToken(tokenizer.TokensFromText(token)));
+            Chart test = new Ma2(parser.ChartOfToken(tokenizer.TokensFromText(token)));
+            test.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
             Console.WriteLine(test.Compose());
+            Console.WriteLine(parser.ChartOfToken(tokenizer.TokensFromText(token)).Compose());
             Assert.IsNotNull(test);
         }
 
