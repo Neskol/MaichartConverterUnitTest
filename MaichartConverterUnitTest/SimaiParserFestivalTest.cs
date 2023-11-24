@@ -34,8 +34,8 @@ public class SimaiParserFestivalTest
         while (scanner.CurrentToken is not TokenEnum.TokenType.EOS)
         {
             scannedTokens.Add(scanner.CurrentToken);
+            Console.WriteLine("At Line {0} Char {1}, Char is {2}, token is {3}",scanner.LineNum, scanner.CharNum, scanner.CurrentToken, scanner.CurrentChar);
             scanner.ScanAndAdvance();
-            Console.WriteLine("At Line {0} Char {1}, token is {2}",scanner.LineNum, scanner.CharNum, scanner.CurrentToken);
         }
     }
 }
