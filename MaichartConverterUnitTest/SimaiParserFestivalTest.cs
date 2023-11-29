@@ -28,14 +28,19 @@ public class SimaiParserFestivalTest
     [TestMethod]
     public void SimaiFestivalScannerInternetOverdose()
     {
-        string candidate = File.ReadAllText(@"../../../data/maidata_internet_overdose.txt").Split("&inote_5")[1];
+        string candidate = File.ReadAllText(@"../../../data/maidata_internet_overdose.txt").Split("&inote_5=")[1];
         SimaiScanner scanner = new(candidate);
         List<TokenEnum.TokenType> scannedTokens = new();
         while (scanner.CurrentToken is not TokenEnum.TokenType.EOS)
         {
             scannedTokens.Add(scanner.CurrentToken);
-            Console.WriteLine("At Line {0} Char {1}, Char is {2}, token is {3}",scanner.LineNum, scanner.CharNum, scanner.CurrentToken, scanner.CurrentChar);
+            // Console.WriteLine("At Line {0} Char {1}, Char is {2}, next token is {3}",scanner.LineNum, scanner.CharNum, scanner.CurrentToken, scanner.CurrentChar);
             scanner.ScanAndAdvance();
+        }
+
+        foreach (TokenEnum.TokenType x in scannedTokens)
+        {
+            Console.WriteLine(x);
         }
     }
 }
