@@ -26,6 +26,19 @@ public class SimaiParserFestivalTest
     }
 
     [TestMethod]
+    public void SimaiFestivalTestConnectingSlide()
+    {
+        SimaiTokenizer tokenizer = new SimaiTokenizer();
+        SimaiParser parser = new SimaiParser();
+        string token = "(120){1},,,,2-4[1:1]-6[1:1]-8[1:1],E";
+        tokenizer.TokensFromText(token);
+        Chart candidate = parser.ChartOfToken(new string[]{token});
+        candidate = new Ma2(candidate);
+        candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
+        Console.WriteLine(candidate.Compose());
+    }
+
+    [TestMethod]
     public void SimaiFestivalScannerInternetOverdose()
     {
         string candidate = File.ReadAllText(@"../../../data/maidata_internet_overdose.txt").Split("&inote_5=")[1];
