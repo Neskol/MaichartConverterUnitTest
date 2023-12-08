@@ -44,16 +44,13 @@ public class SimaiParserFestivalTest
         string candidate = File.ReadAllText(@"../../../data/maidata_internet_overdose.txt").Split("&inote_5=")[1];
         SimaiScanner scanner = new(candidate);
         List<TokenEnum.TokenType> scannedTokens = new();
+        List<char> scannedChars = new();
         while (scanner.CurrentToken is not TokenEnum.TokenType.EOS)
         {
             scannedTokens.Add(scanner.CurrentToken);
-            // Console.WriteLine("At Line {0} Char {1}, Char is {2}, next token is {3}",scanner.LineNum, scanner.CharNum, scanner.CurrentToken, scanner.CurrentChar);
+            scannedChars.Add(scanner.CurrentChar ?? ' ');
+            Console.WriteLine("{0} - {1}", scanner.CurrentToken, scanner.CurrentChar);
             scanner.ScanAndAdvance();
-        }
-
-        foreach (TokenEnum.TokenType x in scannedTokens)
-        {
-            Console.WriteLine(x);
         }
     }
 }
