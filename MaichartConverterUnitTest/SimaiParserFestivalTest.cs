@@ -26,31 +26,47 @@ public class SimaiParserFestivalTest
     }
 
     [TestMethod]
+    public void SimaiFestivalTestExtractConnectingSlide()
+    {
+        string token = "2-4-6-8[1:1]";
+        // string token = "2-4[1:1]-6[1:1]-8[1:1]";
+        // string token = "2-4[1:1]";
+        foreach (string x in SimaiParser.ExtractConnectingSlides(token))
+        {
+            Console.WriteLine(x);
+        }
+    }
+
+    [TestMethod]
     public void SimaiFestivalTestConnectingSlide()
     {
         SimaiTokenizer tokenizer = new SimaiTokenizer();
         SimaiParser parser = new SimaiParser();
-        string token = "(120){1},,,,2-4[1:1]-6[1:1]-8[1:1],E";
-        tokenizer.TokensFromText(token);
-        Chart candidate = parser.ChartOfToken(new string[]{token});
+        string token = "(120){1}2-4[1:1]-6[1:1]-8[1:1],E";
+        // string token = "(120){1}2-4-6-8[1:1],E";
+        Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         candidate = new Ma2(candidate);
         candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
         Console.WriteLine(candidate.Compose());
+
+        candidate = new Simai(candidate);
+        candidate.ChartVersion = ChartEnum.ChartVersion.SimaiFes;
+        Console.WriteLine(candidate.Compose());
     }
 
-    [TestMethod]
-    public void SimaiFestivalScannerInternetOverdose()
-    {
-        string candidate = File.ReadAllText(@"../../../data/maidata_internet_overdose.txt").Split("&inote_5=")[1];
-        SimaiScanner scanner = new(candidate);
-        List<TokenEnum.TokenType> scannedTokens = new();
-        List<char> scannedChars = new();
-        while (scanner.CurrentToken is not TokenEnum.TokenType.EOS)
-        {
-            scannedTokens.Add(scanner.CurrentToken);
-            scannedChars.Add(scanner.CurrentChar ?? ' ');
-            Console.WriteLine("{0} - {1}", scanner.CurrentToken, scanner.CurrentChar);
-            scanner.ScanAndAdvance();
-        }
-    }
+    // [TestMethod]
+    // public void SimaiFestivalScannerInternetOverdose()
+    // {
+    //     string candidate = File.ReadAllText(@"../../../data/maidata_internet_overdose.txt").Split("&inote_5=")[1];
+    //     SimaiScanner scanner = new(candidate);
+    //     List<TokenEnum.TokenType> scannedTokens = new();
+    //     List<char> scannedChars = new();
+    //     while (scanner.CurrentToken is not TokenEnum.TokenType.EOS)
+    //     {
+    //         scannedTokens.Add(scanner.CurrentToken);
+    //         scannedChars.Add(scanner.CurrentChar ?? ' ');
+    //         Console.WriteLine("{0} - {1}", scanner.CurrentToken, scanner.CurrentChar);
+    //         scanner.ScanAndAdvance();
+    //     }
+    // }
 }
