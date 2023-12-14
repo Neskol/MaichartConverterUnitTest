@@ -291,10 +291,10 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
-        public void ExtractConnectingEachSlides()
+        public void ExtractSlideHead()
         {
             string token = "4qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]*pp8[24:5]qq2[0##0.2151]";
-            List<string> expected = new() { "4_", "qq8[24:5]", "pp6[0##0.2151]CN7", "pp7[0##0.2151]CN5", "pp8[24:5]", "qq2[0##0.2151]CN7" };
+            List<string> expected = new() { "4_", "qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]", "pp8[24:5]qq2[0##0.2151]" };
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)

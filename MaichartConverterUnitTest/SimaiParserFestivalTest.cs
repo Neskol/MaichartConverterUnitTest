@@ -19,6 +19,7 @@ public class SimaiParserFestivalTest
         SimaiParser parser = new SimaiParser();
         string[] tokensCandidates = tokenizer.ChartCandidates["5"];
         Chart candidate = parser.ChartOfToken(tokensCandidates);
+        // Console.WriteLine("This chart contains following numbers of ");
         SimaiCompiler compiler = new SimaiCompiler();
         Ma2 toMa2 = new Ma2(candidate);
         toMa2.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
@@ -26,9 +27,21 @@ public class SimaiParserFestivalTest
     }
 
     [TestMethod]
-    public void SimaiFestivalTestExtractConnectingSlide()
+    public void SimaiFestivalTestAssignConnectingSlideMeasure()
     {
         string token = "2-4-6-8[1:1]";
+        // string token = "2-4[1:1]-6[1:1]-8[1:1]";
+        // string token = "2-4[1:1]";
+        foreach (string x in SimaiParser.ExtractConnectingSlides(token))
+        {
+            Console.WriteLine(x);
+        }
+    }
+
+    [TestMethod]
+    public void SimaiFestivalTestAssignConnectingSlideTiming()
+    {
+        string token = "2-4-6-8[0.3##0.6]";
         // string token = "2-4[1:1]-6[1:1]-8[1:1]";
         // string token = "2-4[1:1]";
         foreach (string x in SimaiParser.ExtractConnectingSlides(token))
