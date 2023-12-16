@@ -67,6 +67,12 @@ public class SimaiParserFestivalTest
         Console.WriteLine(candidate.Compose());
     }
 
+    [TestMethod]
+    public void TestKeyDistance()
+    {
+        Console.WriteLine(SimaiParser.KeyDistance(4,3,NoteEnum.NoteType.SCR));
+    }
+
     // [TestMethod]
     // public void SimaiFestivalScannerInternetOverdose()
     // {
