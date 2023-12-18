@@ -158,7 +158,7 @@ namespace MaichartConverterUnitTest
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "4";
-            NoteType expectedType = NoteType.SLL;
+            NoteType expectedType = NoteType.SLR;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -184,7 +184,7 @@ namespace MaichartConverterUnitTest
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "6";
-            NoteType expectedType = NoteType.SLL;
+            NoteType expectedType = NoteType.SLR;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -210,7 +210,7 @@ namespace MaichartConverterUnitTest
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "4";
-            NoteType expectedType = NoteType.SLR;
+            NoteType expectedType = NoteType.SLL;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
