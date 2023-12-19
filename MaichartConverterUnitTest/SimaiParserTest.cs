@@ -354,6 +354,39 @@ namespace MaichartConverterUnitTest
             Ma2 toMa2 = new Ma2(candidate);
             Console.WriteLine(toMa2.Compose());
         }
+
+        [TestMethod]
+        public void TestPowerSignSlide()
+        {
+            string candidate = "(120){4}2^8[1:1]),E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            string[] tokens = tokenizer.TokensFromText(candidate);
+            SimaiParser parser = new SimaiParser();
+            Chart result = parser.ChartOfToken(tokens);
+            Console.WriteLine(result.Compose());
+        }
+
+        [TestMethod]
+        public void TestCHold()
+        {
+            string candidate = "(120){4}C2h[1:1]),E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            string[] tokens = tokenizer.TokensFromText(candidate);
+            SimaiParser parser = new SimaiParser();
+            Chart result = parser.ChartOfToken(tokens);
+            Console.WriteLine(result.Compose());
+        }
+
+        [TestMethod]
+        public void TestWhiteSpace()
+        {
+            string candidate = "(120){4}C2h[1:1]), ,  , ,    ,E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            string[] tokens = tokenizer.TokensFromText(candidate);
+            SimaiParser parser = new SimaiParser();
+            Chart result = parser.ChartOfToken(tokens);
+            Console.WriteLine(result.Compose());
+        }
     }
 }
 
