@@ -158,7 +158,7 @@ namespace MaichartConverterUnitTest
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "4";
-            NoteType expectedType = NoteType.SLL;
+            NoteType expectedType = NoteType.SLR;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -184,7 +184,7 @@ namespace MaichartConverterUnitTest
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "6";
-            NoteType expectedType = NoteType.SLL;
+            NoteType expectedType = NoteType.SLR;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -210,7 +210,7 @@ namespace MaichartConverterUnitTest
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
             string expectedKey = "0";
             string expectedEndKey = "4";
-            NoteType expectedType = NoteType.SLR;
+            NoteType expectedType = NoteType.SLL;
             int expectedBar = 1;
             int expectedTick = 96;
             int expectedWaitLength = 96;
@@ -291,10 +291,10 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
-        public void ExtractConnectingEachSlides()
+        public void ExtractSlideHead()
         {
             string token = "4qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]*pp8[24:5]qq2[0##0.2151]";
-            List<string> expected = new() { "4_", "qq8[24:5]", "pp6[0##0.2151]CN7", "pp7[0##0.2151]CN5", "pp8[24:5]", "qq2[0##0.2151]CN7" };
+            List<string> expected = new() { "4_", "qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]", "pp8[24:5]qq2[0##0.2151]" };
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -309,8 +309,10 @@ namespace MaichartConverterUnitTest
             string token = "(120){1}4b>8[64:35]v2[0##0.4536]v4[0##0.4536]*<8[64:35]v6[0##0.4536]v4[0##0.4536],E";
             SimaiTokenizer tokenizer = new SimaiTokenizer();
             SimaiParser parser = new SimaiParser();
-            Chart test = new Simai(parser.ChartOfToken(tokenizer.TokensFromText(token)));
+            Chart test = new Ma2(parser.ChartOfToken(tokenizer.TokensFromText(token)));
+            test.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
             Console.WriteLine(test.Compose());
+            Console.WriteLine(parser.ChartOfToken(tokenizer.TokensFromText(token)).Compose());
             Assert.IsNotNull(test);
         }
 
@@ -351,6 +353,39 @@ namespace MaichartConverterUnitTest
             SimaiCompiler compiler = new SimaiCompiler();
             Ma2 toMa2 = new Ma2(candidate);
             Console.WriteLine(toMa2.Compose());
+        }
+
+        [TestMethod]
+        public void TestPowerSignSlide()
+        {
+            string candidate = "(120){4}2^8[1:1]),E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            string[] tokens = tokenizer.TokensFromText(candidate);
+            SimaiParser parser = new SimaiParser();
+            Chart result = parser.ChartOfToken(tokens);
+            Console.WriteLine(result.Compose());
+        }
+
+        [TestMethod]
+        public void TestCHold()
+        {
+            string candidate = "(120){4}C2h[1:1]),E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            string[] tokens = tokenizer.TokensFromText(candidate);
+            SimaiParser parser = new SimaiParser();
+            Chart result = parser.ChartOfToken(tokens);
+            Console.WriteLine(result.Compose());
+        }
+
+        [TestMethod]
+        public void TestWhiteSpace()
+        {
+            string candidate = "(120){4}C2h[1:1]), ,  , ,    ,E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            string[] tokens = tokenizer.TokensFromText(candidate);
+            SimaiParser parser = new SimaiParser();
+            Chart result = parser.ChartOfToken(tokens);
+            Console.WriteLine(result.Compose());
         }
     }
 }

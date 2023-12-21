@@ -35,6 +35,7 @@ namespace MaichartConverterUnitTest
             Ma2 test = new Ma2("../../../data/011568_03.ma2");
             Simai slideGroupCandidate = new Simai(test);
             slideGroupCandidate.Update();
+            slideGroupCandidate.ChartVersion = ChartEnum.ChartVersion.SimaiFes;
             // Console.WriteLine(test.Compose());
             Console.WriteLine(slideGroupCandidate.Compose());
             Assert.IsNotNull(test);
@@ -80,6 +81,23 @@ namespace MaichartConverterUnitTest
             Ma2Parser parser = new Ma2Parser();
             Ma2 test = (Ma2)parser.ChartOfToken(tokenizer.Tokens("../../../data/DXFestivalTestMa2.ma2"));
             Console.WriteLine(new Simai(test).Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void Ma2Ver103Tanaka()
+        {
+            Ma2 test = new Ma2("../../../data/011568_03.ma2");
+            Console.WriteLine(test.Compose());
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void Ma2Ver104Tanaka()
+        {
+            Ma2 test = new Ma2("../../../data/011568_03.ma2");
+            test.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
+            Console.WriteLine(test.Compose());
             Assert.IsNotNull(test);
         }
     }
