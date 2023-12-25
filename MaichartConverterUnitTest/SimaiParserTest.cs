@@ -378,6 +378,17 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void TestCTouch()
+        {
+            string candidate = "(120){4}C,,,E";
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            string[] tokens = tokenizer.TokensFromText(candidate);
+            SimaiParser parser = new SimaiParser();
+            Chart result = parser.ChartOfToken(tokens);
+            Console.WriteLine(result.Compose());
+        }
+
+        [TestMethod]
         public void TestWhiteSpace()
         {
             string candidate = "(120){4}C2h[1:1]), ,  , ,    ,E";
