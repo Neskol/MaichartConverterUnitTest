@@ -29,7 +29,8 @@ public class SimaiParserFestivalTest
     [TestMethod]
     public void SimaiFestivalTestAssignConnectingSlideMeasure()
     {
-        string token = "2-4-6-8[1:1]";
+        string token = "-8^7[8:1]";
+        // string token = "2-4-6-8[1:1]";
         // string token = "2-4[1:1]-6[1:1]-8[1:1]";
         // string token = "2-4[1:1]";
         foreach (string x in SimaiParser.ExtractConnectingSlides(token))
@@ -55,8 +56,9 @@ public class SimaiParserFestivalTest
     {
         SimaiTokenizer tokenizer = new SimaiTokenizer();
         SimaiParser parser = new SimaiParser();
-        string token = "(120){1}2-4[1:1]-6[1:1]-8[1:1],E";
+        // string token = "(120){1}2-4[1:1]-6[1:1]-8[1:1],E";
         // string token = "(120){1}2-4-6-8[1:1],E";
+        string token = "(120){1}3-8^7[8:1],E";
         Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         candidate = new Ma2(candidate);
         candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
@@ -70,7 +72,7 @@ public class SimaiParserFestivalTest
     [TestMethod]
     public void TestKeyDistance()
     {
-        Console.WriteLine(SimaiParser.KeyDistance(4,3,NoteEnum.NoteType.SCR));
+        Console.WriteLine(SimaiParser.KeyDistance(6,7,NoteEnum.NoteType.SCR));
     }
 
     // [TestMethod]
