@@ -29,10 +29,10 @@ public class SimaiParserFestivalTest
     [TestMethod]
     public void SimaiFestivalTestAssignConnectingSlideMeasure()
     {
-        string token = "-8^7[8:1]";
+        // string token = "-8^7[8:1]";
         // string token = "2-4-6-8[1:1]";
         // string token = "2-4[1:1]-6[1:1]-8[1:1]";
-        // string token = "2-4[1:1]";
+        string token = "2-4[1:1]";
         foreach (string x in SimaiParser.ExtractConnectingSlides(token))
         {
             Console.WriteLine(x);
