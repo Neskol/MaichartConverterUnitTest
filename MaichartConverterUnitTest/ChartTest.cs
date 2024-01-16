@@ -301,7 +301,7 @@ namespace MaichartConverterUnitTest
         public void TestDifferentChartVersionParse()
         {
             Chart candidate = new Ma2("../../../data/011568_03.ma2");
-            Console.WriteLine(candidate.Compose(ChartVersion.Simai));
+            Console.WriteLine(candidate.Compose(ChartVersion.Debug));
             Assert.IsNotNull(candidate);
         }
     }
