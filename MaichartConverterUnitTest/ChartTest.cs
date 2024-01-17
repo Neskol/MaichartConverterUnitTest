@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
 using static MaiLib.Chart;
@@ -303,6 +304,43 @@ namespace MaichartConverterUnitTest
             Chart candidate = new Ma2("../../../data/011568_03.ma2");
             Console.WriteLine(candidate.Compose(ChartVersion.Debug));
             Assert.IsNotNull(candidate);
+        }
+
+        [TestMethod]
+        public void TestNoteStatistics()
+        {
+            Ma2 candidate = new Ma2("../../../data/011568_03.ma2");
+            // LINQ for TAP
+            Console.WriteLine("TAP Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("Break Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.Break));
+            Console.WriteLine("EX Tap Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.EX));
+            Console.WriteLine("BreakEX Tap\tNum: {0}", candidate.Notes.Count(p=> p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.BreakEX));
+
+            // LINQ for Hold
+            Console.WriteLine("HOLD Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("EX HOLD Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.EX));
+            Console.WriteLine("Break HOLD Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.Break));
+            Console.WriteLine("BreakEX HOLD Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.BreakEX));
+
+            // LINQ for Slide Starts
+            Console.WriteLine("STR Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("Break STR Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.Break));
+            Console.WriteLine("EX STR Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.EX));
+            Console.WriteLine("BreakEX STR Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.BreakEX));
+
+            // LINQ for Touch
+            Console.WriteLine("Touch Tap Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.TTP));
+            Console.WriteLine("Touch Hold Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.THO));
+
+            // LINQ for Slide
+            candidate.ComposeSlideGroup(); // This is needed to exclude connecting slide
+            Console.WriteLine("Slide Num:\t{0}", candidate.Notes.Count(p=>p.NoteGenre is NoteGenre.SLIDE && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("Break Slide Num:\t{0}", candidate.Notes.Count(p=>p.NoteGenre is NoteGenre.SLIDE && p.NoteSpecialState is SpecialState.Break));
+
+            // LINQ for ALL
+            Console.WriteLine("ALL Num:\t{0}", candidate.Notes.Count);
+
+            Console.WriteLine(candidate.GenerateNoteStatistics());
         }
     }
 }
