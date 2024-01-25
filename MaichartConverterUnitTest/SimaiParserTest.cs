@@ -398,6 +398,17 @@ namespace MaichartConverterUnitTest
             Chart result = parser.ChartOfToken(tokens);
             Console.WriteLine(result.Compose());
         }
+
+        [TestMethod]
+        public void TestTimingWithTimedSlides()
+        {
+            Chart qz = new Ma2("../../../data/000799_04.ma2");
+            SimaiParser simaiParser = new SimaiParser();
+            SimaiTokenizer simaiTokenizer = new SimaiTokenizer();
+            string composedSimai = qz.Compose(ChartEnum.ChartVersion.Simai);
+            Chart revisedQz = simaiParser.ChartOfToken(simaiTokenizer.TokensFromText(composedSimai));
+            Console.WriteLine(revisedQz.Compose(ChartEnum.ChartVersion.Ma2_103));
+        }
     }
 }
 
