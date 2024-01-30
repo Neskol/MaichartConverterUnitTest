@@ -402,7 +402,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void TestTimingWithTimedSlides()
         {
-            Chart qz = new Ma2("../../../data/000799_04.ma2");
+            Chart qz = new Ma2("../../../data/011311_03.ma2");
             SimaiParser simaiParser = new SimaiParser();
             SimaiTokenizer simaiTokenizer = new SimaiTokenizer();
             string composedSimai = qz.Compose(ChartEnum.ChartVersion.Simai);
