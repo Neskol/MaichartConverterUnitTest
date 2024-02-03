@@ -72,6 +72,23 @@ public class SimaiParserFestivalTest
     }
 
     [TestMethod]
+    public void SimaiFestivalTestUtageSlideStarts()
+    {
+        SimaiTokenizer tokenizer = new SimaiTokenizer();
+        SimaiParser parser = new SimaiParser();
+
+        string token = "(120){1}1$/2!-4[1:1],E";
+        Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
+        candidate = new Ma2(candidate);
+        candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
+        Console.WriteLine(candidate.Compose());
+
+        candidate = new Simai(candidate);
+        candidate.ChartVersion = ChartEnum.ChartVersion.SimaiFes;
+        Console.WriteLine(candidate.Compose());
+    }
+
+    [TestMethod]
     public void TestKeyDistance()
     {
         Console.WriteLine(SimaiParser.KeyDistance(6,7,NoteEnum.NoteType.SCR));
