@@ -77,7 +77,7 @@ public class SimaiParserFestivalTest
         SimaiTokenizer tokenizer = new SimaiTokenizer();
         SimaiParser parser = new SimaiParser();
 
-        string token = "(120){1}1$/2!-4[1:1],E";
+        string token = "(120){1}1$/2!-4[1:1]/3h,E";
         Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         candidate = new Ma2(candidate);
         candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
