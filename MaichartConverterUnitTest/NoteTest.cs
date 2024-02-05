@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
 using static MaiLib.NoteEnum;
 using static MaiLib.ChartEnum;
@@ -75,6 +76,7 @@ namespace MaichartConverterUnitTest
             double expected = Note.GetBPMTimeUnit(60) * 192;
             int bar0Tick192 = 192;
             double actual = x.GetTimeStamp(bar0Tick192);
+            Console.WriteLine(x.GetTickStampByTime(7));
             Assert.AreEqual(expected, actual);
         }
 
