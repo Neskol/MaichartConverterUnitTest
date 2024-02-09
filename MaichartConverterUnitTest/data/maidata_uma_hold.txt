@@ -1,0 +1,24 @@
+﻿&title=うまぴょい伝説[DX]
+&wholebpm=170
+&artist=スペシャルウィーク （CV.和氣あず未）、サイレンススズカ （CV.高野麻里佳）、トウカイテイオー （CV.Machico）
+&des=緑風 犬三郎
+&shortid=11409
+&genre=POPSアニメ
+&cabinet=DX
+&version=maimai DX UNiVERSE PLUS
+&ChartConverter=Neskol
+&ChartConvertTool=MaichartConverter
+&ChartConvertToolVersion=1.0.5.0
+&smsg=See https://github.com/Neskol/MaichartConverter for updates
+
+&lv_6=13
+&des_6=翠楼屋
+
+&inote_6=
+(114.5){4},(112.5),(106.5),
+(102.5),(100.5),(94.5),(91.5),
+{16}1xw5[5.3247##0.2353],8xh[384:617],2xh[384:593],,,,,,,,,,,,,,
+{32},,,(170),,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+{6},,,,,1x,
+{8},,,,2/5,3/6,4/7,5/8-4[8:1],
+E
