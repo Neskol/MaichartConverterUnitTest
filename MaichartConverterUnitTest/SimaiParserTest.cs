@@ -16,6 +16,8 @@ namespace MaichartConverterUnitTest
             string holdToken = "3h[4:1]";
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
+            x.BPMChangeNotes.Add(new BPMChange(0, 0, 120));
+            x.Update();
             string expectedKey = "2";
             NoteType expectedType = NoteType.HLD;
             int expectedBar = 0;
@@ -36,6 +38,8 @@ namespace MaichartConverterUnitTest
             string holdToken = "3xh[4:1]";
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
+            x.BPMChangeNotes.Add(new BPMChange(0, 0, 120));
+            x.Update();
             string expectedKey = "2";
             NoteType expectedType = NoteType.HLD;
             SpecialState expectedSpecialState = SpecialState.EX;
@@ -58,6 +62,8 @@ namespace MaichartConverterUnitTest
             string holdToken = "C1[4:1]";
             SimaiParser parser = new SimaiParser();
             Hold x = parser.HoldOfToken(holdToken, 0, 0, 120);
+            x.BPMChangeNotes.Add(new BPMChange(0, 0, 120));
+            x.Update();
             string expectedKey = "0C";
             NoteType expectedType = NoteType.THO;
             int expectedBar = 0;
@@ -105,6 +111,8 @@ namespace MaichartConverterUnitTest
             Tap previousSlideStart = new Tap(NoteType.STR, 0, 0, "0");
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 0, 0, previousSlideStart, 120.0);
+            x.BPMChangeNotes.Add(new BPMChange(0, 0, 120));
+            x.Update();
             string expectedKey = "0";
             string expectedEndKey = "2";
             NoteType expectedType = NoteType.SI_;
@@ -408,6 +416,72 @@ namespace MaichartConverterUnitTest
             string composedSimai = qz.Compose(ChartEnum.ChartVersion.Simai);
             Chart revisedQz = simaiParser.ChartOfToken(simaiTokenizer.TokensFromText(composedSimai));
             Console.WriteLine(revisedQz.Compose(ChartEnum.ChartVersion.Ma2_103));
+        }
+
+        [TestMethod]
+        public void TestGetDurationZeroWaitTime()
+        {
+            double bpm = 120;
+            double[] expected = [0, 4];
+            string quaverBeatCandidate = "[1:2]";
+            string holdLastTimeCandidate = "[#4]";
+            string slideLastTimeCandidate = "[0##4]";
+            string holdBpmQuaverBeatCandidate = "[60#1:1]";
+            string slideBpmQuaverBeatCandidate = "[0##60#1:1]";
+
+            static bool IsEquivalentArray(double[] expected, double[] actual)
+            {
+                if (expected.Length != actual.Length) return false;
+                for (int i = 0; i < expected.Length; i++)
+                {
+                    if (Math.Abs(expected[i] - actual[i]) > 0.001)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,holdBpmQuaverBeatCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideBpmQuaverBeatCandidate)));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdBpmQuaverBeatCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,slideBpmQuaverBeatCandidate));
+        }
+
+        [TestMethod]
+        public void TestGetDurationOneSecWaitTime()
+        {
+            double bpm = 120;
+            double[] expected = [1, 2];
+            string slideLastTimeCandidate = "[1##2]";
+            string slideBpmQuaverBeatCandidate = "[1##60#2:1]";
+
+            static bool IsEquivalentArray(double[] expected, double[] actual)
+            {
+                if (expected.Length != actual.Length) return false;
+                for (int i = 0; i < expected.Length; i++)
+                {
+                    if (Math.Abs(expected[i] - actual[i]) > 0.001)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideBpmQuaverBeatCandidate)));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdBpmQuaverBeatCandidate));
+            // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,slideBpmQuaverBeatCandidate));
         }
     }
 }
