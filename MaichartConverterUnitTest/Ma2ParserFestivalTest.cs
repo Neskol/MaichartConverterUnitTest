@@ -37,6 +37,18 @@ namespace MaichartConverterUnitTest
             slideGroupCandidate.Update();
             slideGroupCandidate.ChartVersion = ChartEnum.ChartVersion.SimaiFes;
             // Console.WriteLine(test.Compose());
+            Console.WriteLine(slideGroupCandidate.Compose(ChartEnum.ChartVersion.Ma2_104));
+            Assert.IsNotNull(test);
+        }
+
+        [TestMethod]
+        public void FestivalTestJingleBell()
+        {
+            Ma2 test = new Ma2("../../../data/010070_03.ma2");
+            Simai slideGroupCandidate = new Simai(test);
+            slideGroupCandidate.Update();
+            slideGroupCandidate.ChartVersion = ChartEnum.ChartVersion.SimaiFes;
+            // Console.WriteLine(test.Compose());
             Console.WriteLine(slideGroupCandidate.Compose());
             Assert.IsNotNull(test);
         }
