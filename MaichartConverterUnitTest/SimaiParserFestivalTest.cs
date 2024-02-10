@@ -24,6 +24,7 @@ public class SimaiParserFestivalTest
         Ma2 toMa2 = new Ma2(candidate);
         toMa2.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
         Console.WriteLine(toMa2.Compose());
+        Assert.IsTrue(toMa2.IsDxChart);
     }
 
     [TestMethod]
