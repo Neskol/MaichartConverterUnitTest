@@ -37,7 +37,7 @@ namespace MaichartConverterUnitTest
             slideGroupCandidate.Update();
             slideGroupCandidate.ChartVersion = ChartEnum.ChartVersion.SimaiFes;
             // Console.WriteLine(test.Compose());
-            Console.WriteLine(slideGroupCandidate.Compose(ChartEnum.ChartVersion.Ma2_104));
+            Console.WriteLine(slideGroupCandidate.Compose(ChartEnum.ChartVersion.Simai));
             Assert.IsNotNull(test);
         }
 
