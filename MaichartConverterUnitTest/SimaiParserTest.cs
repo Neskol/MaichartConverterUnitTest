@@ -251,6 +251,7 @@ namespace MaichartConverterUnitTest
                 Assert.AreEqual(expected[i], actual[i]);
             }
         }
+
         [TestMethod]
         public void ExtractEachSlides2SectionWithBSTTest()
         {
@@ -444,14 +445,15 @@ namespace MaichartConverterUnitTest
                         return false;
                     }
                 }
+
                 return true;
             }
 
-            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate)));
-            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate)));
-            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate)));
-            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,holdBpmQuaverBeatCandidate)));
-            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideBpmQuaverBeatCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, quaverBeatCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, holdLastTimeCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideLastTimeCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, holdBpmQuaverBeatCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideBpmQuaverBeatCandidate)));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate));
@@ -477,11 +479,12 @@ namespace MaichartConverterUnitTest
                         return false;
                     }
                 }
+
                 return true;
             }
 
-            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate)));
-            Assert.IsTrue(IsEquivalentArray(expected,SimaiParser.GetTimeCandidates(bpm,slideBpmQuaverBeatCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideLastTimeCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideBpmQuaverBeatCandidate)));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate));
@@ -490,4 +493,3 @@ namespace MaichartConverterUnitTest
         }
     }
 }
-

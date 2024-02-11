@@ -10,7 +10,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void FestivalTestTanaka()
         {
-            Ma2 test = new Ma2("../../../data/011489_03.ma2"){ChartVersion = ChartEnum.ChartVersion.Ma2_104};
+            Ma2 test = new Ma2("../../../data/011489_03.ma2") { ChartVersion = ChartEnum.ChartVersion.Ma2_104 };
             Simai slideGroupCandidate = new Simai(test);
             slideGroupCandidate.Update();
             Console.WriteLine(test.Compose());

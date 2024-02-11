@@ -27,6 +27,7 @@ namespace MaichartConverterUnitTest
                     Console.WriteLine(x.Compose(ChartVersion.Debug));
                 }
             }
+
             Assert.IsNotNull(test);
         }
 
@@ -186,4 +187,3 @@ namespace MaichartConverterUnitTest
         }
     }
 }
-

@@ -18,7 +18,7 @@ namespace MaichartConverterUnitTest
         }
 
         /// <summary>
-        /// Test GetTimeStamp with actuall notes
+        ///     Test GetTimeStamp with actuall notes
         /// </summary>
         [TestMethod]
         public void GetTimeStampTestNoteTapBar0Tick192()
@@ -122,8 +122,7 @@ namespace MaichartConverterUnitTest
             Note touchHold = new Hold(NoteType.THO, 0, 0, "0C", 384);
             // touchHold.SpecialEffect = true;
             string expected = "C1h[1:1]";
-            Assert.AreEqual(expected,touchHold.Compose(ChartVersion.Simai));
+            Assert.AreEqual(expected, touchHold.Compose(ChartVersion.Simai));
         }
     }
 }
-

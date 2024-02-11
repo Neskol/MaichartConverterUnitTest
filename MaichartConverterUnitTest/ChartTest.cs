@@ -21,7 +21,7 @@ namespace MaichartConverterUnitTest
 
         //Starts ChartTest
         /// <summary>
-        /// Test GetBPMTimeUnit
+        ///     Test GetBPMTimeUnit
         /// </summary>
         [TestMethod]
         public void ChartGetBPMTimeUnitTest1()
@@ -32,7 +32,7 @@ namespace MaichartConverterUnitTest
         }
 
         /// <summary>
-        /// Test GetTimeStamp Method
+        ///     Test GetTimeStamp Method
         /// </summary>
         [TestMethod]
         public void GetTimeStampTestZero()
@@ -75,7 +75,8 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 384;
+            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 +
+                              Chart.GetBPMTimeUnit(240, Definition) * 384;
             int bar3Tick = 384 * 3;
             double actual = chart.GetTimeStamp(bar3Tick);
             Assert.AreEqual(expected, actual);
@@ -89,14 +90,15 @@ namespace MaichartConverterUnitTest
             chart.BPMChanges.Add(new BPMChange(0, 0, 60.0));
             chart.BPMChanges.Add(new BPMChange(1, 0, 120.0));
             chart.BPMChanges.Add(new BPMChange(2, 0, 240.0));
-            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 24;
+            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 +
+                              Chart.GetBPMTimeUnit(240, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 24;
             int bar3Tick24 = 384 * 3 + 24;
             double actual = chart.GetTimeStamp(bar3Tick24);
             Assert.AreEqual(expected, actual);
         }
 
         /// <summary>
-        /// Test GetTimeStamp Method with BPMChange
+        ///     Test GetTimeStamp Method with BPMChange
         /// </summary>
         [TestMethod]
         public void GetTimeStampTestZeroWithBPMChange()
@@ -135,7 +137,8 @@ namespace MaichartConverterUnitTest
             x.Add(new BPMChange(0, 0, 60.0));
             x.Add(new BPMChange(1, 0, 120.0));
             x.Add(new BPMChange(2, 0, 240.0));
-            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 384;
+            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 +
+                              Chart.GetBPMTimeUnit(240, Definition) * 384;
             int bar3Tick = 384 * 3;
             double actual = GetTimeStamp(x, bar3Tick, Definition);
             Assert.AreEqual(expected, actual);
@@ -148,15 +151,16 @@ namespace MaichartConverterUnitTest
             x.Add(new BPMChange(0, 0, 60.0));
             x.Add(new BPMChange(1, 0, 120.0));
             x.Add(new BPMChange(2, 0, 240.0));
-            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 24;
+            double expected = Chart.GetBPMTimeUnit(60, Definition) * 384 + Chart.GetBPMTimeUnit(120, Definition) * 384 +
+                              Chart.GetBPMTimeUnit(240, Definition) * 384 + Chart.GetBPMTimeUnit(240, Definition) * 24;
             int bar3Tick24 = 384 * 3 + 24;
-            double actual = GetTimeStamp(x, bar3Tick24,Definition);
+            double actual = GetTimeStamp(x, bar3Tick24, Definition);
             Assert.AreEqual(expected, actual);
         }
 
 
         /// <summary>
-        /// Test GetTimeStamp with actual notes
+        ///     Test GetTimeStamp with actual notes
         /// </summary>
         [TestMethod]
         public void ChartGetTimeStampTestNoteTapBar0Tick192()
@@ -203,7 +207,7 @@ namespace MaichartConverterUnitTest
         }
 
         /// <summary>
-        /// Test GetBPMByTick
+        ///     Test GetBPMByTick
         /// </summary>
         [TestMethod]
         public void GetBPMByTickZero()
@@ -311,31 +315,46 @@ namespace MaichartConverterUnitTest
         {
             Ma2 candidate = new Ma2("../../../data/011568_03.ma2");
             // LINQ for TAP
-            Console.WriteLine("TAP Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.Normal));
-            Console.WriteLine("Break Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.Break));
-            Console.WriteLine("EX Tap Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.EX));
-            Console.WriteLine("BreakEX Tap\tNum: {0}", candidate.Notes.Count(p=> p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.BreakEX));
+            Console.WriteLine("TAP Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("Break Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.Break));
+            Console.WriteLine("EX Tap Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.EX));
+            Console.WriteLine("BreakEX Tap\tNum: {0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.TAP && p.NoteSpecialState is SpecialState.BreakEX));
 
             // LINQ for Hold
-            Console.WriteLine("HOLD Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.Normal));
-            Console.WriteLine("EX HOLD Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.EX));
-            Console.WriteLine("Break HOLD Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.Break));
-            Console.WriteLine("BreakEX HOLD Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.BreakEX));
+            Console.WriteLine("HOLD Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("EX HOLD Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.EX));
+            Console.WriteLine("Break HOLD Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.Break));
+            Console.WriteLine("BreakEX HOLD Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.HLD && p.NoteSpecialState is SpecialState.BreakEX));
 
             // LINQ for Slide Starts
-            Console.WriteLine("STR Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.Normal));
-            Console.WriteLine("Break STR Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.Break));
-            Console.WriteLine("EX STR Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.EX));
-            Console.WriteLine("BreakEX STR Num:\t{0}", candidate.Notes.Count(p=> p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.BreakEX));
+            Console.WriteLine("STR Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("Break STR Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.Break));
+            Console.WriteLine("EX STR Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.EX));
+            Console.WriteLine("BreakEX STR Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteType is NoteType.STR && p.NoteSpecialState is SpecialState.BreakEX));
 
             // LINQ for Touch
-            Console.WriteLine("Touch Tap Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.TTP));
-            Console.WriteLine("Touch Hold Num:\t{0}", candidate.Notes.Count(p=>p.NoteType is NoteType.THO));
+            Console.WriteLine("Touch Tap Num:\t{0}", candidate.Notes.Count(p => p.NoteType is NoteType.TTP));
+            Console.WriteLine("Touch Hold Num:\t{0}", candidate.Notes.Count(p => p.NoteType is NoteType.THO));
 
             // LINQ for Slide
             candidate.ComposeSlideGroup(); // This is needed to exclude connecting slide
-            Console.WriteLine("Slide Num:\t{0}", candidate.Notes.Count(p=>p.NoteGenre is NoteGenre.SLIDE && p.NoteSpecialState is SpecialState.Normal));
-            Console.WriteLine("Break Slide Num:\t{0}", candidate.Notes.Count(p=>p.NoteGenre is NoteGenre.SLIDE && p.NoteSpecialState is SpecialState.Break));
+            Console.WriteLine("Slide Num:\t{0}",
+                candidate.Notes.Count(p =>
+                    p.NoteGenre is NoteGenre.SLIDE && p.NoteSpecialState is SpecialState.Normal));
+            Console.WriteLine("Break Slide Num:\t{0}",
+                candidate.Notes.Count(p => p.NoteGenre is NoteGenre.SLIDE && p.NoteSpecialState is SpecialState.Break));
 
             // LINQ for ALL
             Console.WriteLine("ALL Num:\t{0}", candidate.Notes.Count);
@@ -344,4 +363,3 @@ namespace MaichartConverterUnitTest
         }
     }
 }
-

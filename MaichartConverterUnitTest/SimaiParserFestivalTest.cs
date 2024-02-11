@@ -1,4 +1,5 @@
 namespace MaichartConverterUnitTest;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -93,7 +94,7 @@ public class SimaiParserFestivalTest
     [TestMethod]
     public void TestKeyDistance()
     {
-        Console.WriteLine(SimaiParser.KeyDistance(6,7,NoteEnum.NoteType.SCR));
+        Console.WriteLine(SimaiParser.KeyDistance(6, 7, NoteEnum.NoteType.SCR));
     }
 
     // [TestMethod]
