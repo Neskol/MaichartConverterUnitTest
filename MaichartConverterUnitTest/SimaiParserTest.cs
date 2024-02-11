@@ -86,6 +86,7 @@ namespace MaichartConverterUnitTest
             Tap previousSlideStart = new Tap(NoteType.STR, 0, 0, "0");
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 0, 0, previousSlideStart, 120.0);
+            x.Update();
             string expectedKey = "0";
             string expectedEndKey = "2";
             NoteType expectedType = NoteType.SI_;
@@ -138,6 +139,7 @@ namespace MaichartConverterUnitTest
             Tap previousSlideStart = new Tap(NoteType.STR, 1, 96, "0");
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
+            x.Update();
             string expectedKey = "0";
             string expectedEndKey = "2";
             NoteType expectedType = NoteType.SF_;
@@ -164,6 +166,7 @@ namespace MaichartConverterUnitTest
             previousSlideStart.NoteSpecialState = SpecialState.Break;
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
+            x.Update();
             string expectedKey = "0";
             string expectedEndKey = "4";
             NoteType expectedType = NoteType.SLR;
@@ -190,6 +193,7 @@ namespace MaichartConverterUnitTest
             previousSlideStart.NoteSpecialState = SpecialState.Break;
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
+            x.Update();
             string expectedKey = "0";
             string expectedEndKey = "6";
             NoteType expectedType = NoteType.SLR;
@@ -216,6 +220,7 @@ namespace MaichartConverterUnitTest
             previousSlideStart.NoteSpecialState = SpecialState.Break;
             SimaiParser parser = new SimaiParser();
             Slide x = parser.SlideOfToken(slideToken, 1, 96, previousSlideStart, 120.0);
+            x.Update();
             string expectedKey = "0";
             string expectedEndKey = "4";
             NoteType expectedType = NoteType.SLL;
