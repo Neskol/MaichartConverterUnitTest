@@ -506,7 +506,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void TestGraceNoteParsing()
         {
-            string candidate = "(120){4}1'2^8[1:1]),E";
+            string candidate = "(120){4}1'2'3'4'2^8[1:1]),E";
             SimaiTokenizer tokenizer = new();
             string[] tokens = tokenizer.TokensFromText(candidate);
             SimaiParser parser = new();
