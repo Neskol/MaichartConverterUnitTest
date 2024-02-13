@@ -496,7 +496,7 @@ namespace MaichartConverterUnitTest
         public void TestGraceNoteSplitting()
         {
             // string candidate = "4/C/Ch/5-7[8:1]";
-            string candidate = "1'2'3'4bx/Cf/Chf/5-7[8:1]";
+            string candidate = "1`2`3`4bx/Cf/Chf/5-7[8:1]";
             foreach (string x in SimaiParser.EachGroupOfToken(candidate))
             {
                 Console.WriteLine(x);
@@ -506,12 +506,12 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void TestGraceNoteParsing()
         {
-            string candidate = "(120){4}1'2'3'4'2^8[1:1]),E";
+            string candidate = "(120){4}1`2`3`4`2^8[1:1]),E";
             SimaiTokenizer tokenizer = new();
             string[] tokens = tokenizer.TokensFromText(candidate);
             SimaiParser parser = new();
             Chart result = parser.ChartOfToken(tokens);
-            Console.WriteLine(result.Compose(ChartEnum.ChartVersion.Ma2_103));
+            Console.WriteLine(result.Compose(ChartEnum.ChartVersion.Ma2_104));
         }
     }
 }
