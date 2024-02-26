@@ -60,10 +60,11 @@ public class SimaiParserFestivalTest
     {
         SimaiTokenizer tokenizer = new SimaiTokenizer();
         SimaiParser parser = new SimaiParser();
+        string token = "(120){1}2-4-6-8[160#4:1],E";
         // string token = "(120){1}2-4[1:1]-6[1:1]-8[1:1],E";
         // string token = "(120){1}2-4-6-8[1:1],E";
         // string token = "(120){1}3-8^7[8:1],E";
-        string token = "(120){1}1V75V71[8:1]b*V35V31[8:1],1h,C,Chf[#8],2h/3h[160#4:2],E";
+        // string token = "(120){1}1V75V71[8:1]b*V35V31[8:1],1h,C,Chf[#8],2h/3h[160#4:2],E";
         Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         candidate = new Ma2(candidate);
         candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
@@ -81,6 +82,23 @@ public class SimaiParserFestivalTest
         SimaiParser parser = new SimaiParser();
 
         string token = "(120){1}1$/2!-4[1:1]/3h,E";
+        Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
+        candidate = new Ma2(candidate);
+        candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
+        Console.WriteLine(candidate.Compose());
+
+        candidate = new Simai(candidate);
+        candidate.ChartVersion = ChartEnum.ChartVersion.SimaiFes;
+        Console.WriteLine(candidate.Compose());
+    }
+
+    [TestMethod]
+    public void SimaiFestivalTestEachTap()
+    {
+        SimaiTokenizer tokenizer = new SimaiTokenizer();
+        SimaiParser parser = new SimaiParser();
+
+        string token = "(120){1}12,34,56";
         Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         candidate = new Ma2(candidate);
         candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
