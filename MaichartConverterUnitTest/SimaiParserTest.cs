@@ -357,6 +357,19 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
+        public void ComprehensiveTestInternetOverdose()
+        {
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            tokenizer.UpdateFromPath(@"../../../data/maidata_internet_overdose.txt");
+            SimaiParser parser = new SimaiParser();
+            string[] tokensCandidates = tokenizer.ChartCandidates["5"];
+            Chart candidate = parser.ChartOfToken(tokensCandidates);
+            SimaiCompiler compiler = new SimaiCompiler();
+            Ma2 toMa2 = new Ma2(candidate);
+            Console.WriteLine(new Simai(toMa2).Compose());
+        }
+
+        [TestMethod]
         public void ComprehensiveTestComplex()
         {
             SimaiTokenizer tokenizer = new SimaiTokenizer();
@@ -467,6 +480,7 @@ namespace MaichartConverterUnitTest
             double bpm = 120;
             double[] expected = [1, 2];
             string slideLastTimeCandidate = "[1##2]";
+            string slideReassignedCandidate = "[60#2]";
             string slideBpmQuaverBeatCandidate = "[1##60#2:1]";
 
             static bool IsEquivalentArray(double[] expected, double[] actual)
@@ -483,7 +497,10 @@ namespace MaichartConverterUnitTest
                 return true;
             }
 
+            double[] reassignedCandidate = SimaiParser.GetTimeCandidates(bpm, slideReassignedCandidate);
+
             Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideLastTimeCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideReassignedCandidate)));
             Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideBpmQuaverBeatCandidate)));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate));
