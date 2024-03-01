@@ -60,7 +60,7 @@ public class SimaiParserFestivalTest
     {
         SimaiTokenizer tokenizer = new SimaiTokenizer();
         SimaiParser parser = new SimaiParser();
-        string token = "(120){1}2-4-6-8[160#4:1],E";
+        string token = "(120){1}2-4-6-8[60#4:1],E";
         // string token = "(120){1}2-4[1:1]-6[1:1]-8[1:1],E";
         // string token = "(120){1}2-4-6-8[1:1],E";
         // string token = "(120){1}3-8^7[8:1],E";
