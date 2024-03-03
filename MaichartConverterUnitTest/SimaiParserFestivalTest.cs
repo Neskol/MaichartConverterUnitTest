@@ -115,6 +115,8 @@ public class SimaiParserFestivalTest
         SimaiParser parser = new SimaiParser();
 
         string token = "(120){1}12,34,56";
+        List<string> extractedParts = SimaiParser.EachGroupOfToken("(120){1}12");
+
         Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         candidate = new Ma2(candidate);
         candidate.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
