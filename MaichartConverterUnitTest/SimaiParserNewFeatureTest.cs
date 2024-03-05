@@ -8,7 +8,7 @@ namespace MaichartConverterUnitTest;
 public class SimaiParserNewFeatureTest
 {
     /// <summary>
-    /// From MaichartConverter Issue #19
+    ///     From MaichartConverter Issue #19
     /// </summary>
     [TestMethod]
     public void FesSlideDuration()
@@ -33,7 +33,7 @@ public class SimaiParserNewFeatureTest
     }
 
     /// <summary>
-    /// From MaiLib Issue #41
+    ///     From MaiLib Issue #41
     /// </summary>
     [TestMethod]
     public void FesSlideCustomDuration()
@@ -47,7 +47,7 @@ public class SimaiParserNewFeatureTest
     }
 
     /// <summary>
-    /// From MaiLib Issue #42
+    ///     From MaiLib Issue #42
     /// </summary>
     [TestMethod]
     public void FesConnectingSlideDelay()
@@ -61,7 +61,7 @@ public class SimaiParserNewFeatureTest
     }
 
     /// <summary>
-    /// From MaiLib Issue #43
+    ///     From MaiLib Issue #43
     /// </summary>
     [TestMethod]
     public void EachTapRework()
