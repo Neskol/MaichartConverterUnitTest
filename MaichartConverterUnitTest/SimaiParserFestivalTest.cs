@@ -46,9 +46,10 @@ public class SimaiParserFestivalTest
     public void SimaiFestivalTestAssignConnectingSlideTiming()
     {
         // string token = "2-4-6-8[0.3##0.6]";
-        string token = "2-4-6-8[0.3##60#4:3]";
+        // string token = "2-4-6-8[0.3##60#4:3]";
         // string token = "2-4[1:1]-6[1:1]-8[1:1]";
         // string token = "2!-4[1:1]";
+        string token = "1-4-8[1:1]";
         foreach (string x in SimaiParser.ExtractConnectingSlides(token))
         {
             Console.WriteLine(x);
