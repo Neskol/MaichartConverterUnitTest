@@ -114,8 +114,9 @@ public class SimaiParserFestivalTest
         SimaiTokenizer tokenizer = new SimaiTokenizer();
         SimaiParser parser = new SimaiParser();
 
-        string token = "(120){1}12,34,56";
-        List<string> extractedParts = SimaiParser.EachGroupOfToken("(120){1}12");
+        // string token = "(120){1}12,34,56";
+        string token = "(120){4}1-4-6[8:1],E";
+        List<string> extractedParts = SimaiParser.EachGroupOfToken("(120){4}1-4-6[8:1]");
 
         Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         candidate = new Ma2(candidate);
