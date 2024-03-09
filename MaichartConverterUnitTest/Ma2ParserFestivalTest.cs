@@ -108,8 +108,7 @@ namespace MaichartConverterUnitTest
         public void Ma2Ver104Tanaka()
         {
             Ma2 test = new Ma2("../../../data/011568_03.ma2");
-            test.ChartVersion = ChartEnum.ChartVersion.Ma2_104;
-            Console.WriteLine(test.Compose());
+            Console.WriteLine(test.Compose(ChartEnum.ChartVersion.Ma2_104));
             Assert.IsNotNull(test);
         }
 
