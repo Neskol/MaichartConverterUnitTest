@@ -16,8 +16,8 @@ namespace MaichartConverterUnitTest
         {
             XmlInformation xml = new XmlInformation();
             xml.FormatDummyInformation();
-            xml.GenerateEmptyStoredXML();
-            xml.TakeInValue.Save("../../../data/information.xml");
+            // xml.GenerateEmptyStoredXML();
+            // xml.TakeInValue.Save("../../../data/information.xml");
         }
 
         // [TestMethod]

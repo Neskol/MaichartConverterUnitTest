@@ -73,4 +73,18 @@ public class SimaiParserNewFeatureTest
         Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Simai));
         Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Ma2_104));
     }
+
+    /// <summary>
+        ///     From MaiLib Issue #46
+        /// </summary>
+        [TestMethod]
+        public void FesConnectingLongSlide()
+        {
+            string token = "(120){1}1-4[4:1]-6[4:1]-8[4:1],{1}1-4-6-8[4:3],E";
+            SimaiParser parser = new();
+            SimaiTokenizer tokenizer = new();
+            Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
+            Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Simai));
+            Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Ma2_104));
+        }
 }
