@@ -119,5 +119,13 @@ namespace MaichartConverterUnitTest
             Console.WriteLine(test.Compose(ChartEnum.ChartVersion.SimaiFes));
             Assert.IsNotNull(test);
         }
+
+        [TestMethod]
+        public void Ma2SpaceAndReturn()
+        {
+            Ma2 test = new Ma2("../../../data/11474.ma2");
+            Console.WriteLine(test.Compose(ChartEnum.ChartVersion.SimaiFes));
+            Assert.IsNotNull(test);
+        }
     }
 }
