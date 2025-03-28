@@ -10,6 +10,21 @@ namespace MaichartConverterUnitTest
     [TestClass]
     public class SimaiParserTest
     {
+        private static bool IsEquivalentArray(double[] expected, double[] actual)
+        {
+            if (expected.Length != actual.Length) return false;
+            for (int i = 0; i < expected.Length; i++)
+            {
+                if (Math.Abs(expected[i] - actual[i]) > 0.001)
+                {
+                    Console.WriteLine("ELEMENT MISMATCH AT INDEX {0}:\nEXPECT: {1}\nACTUAL: {2}", i, expected[i], actual[i]);
+                    Console.ReadKey();
+                    return false;
+                }
+            }
+            return true;
+        }
+
         [TestMethod]
         public void HoldOfTokenWithBar0Tick0HLDTest()
         {
@@ -483,25 +498,13 @@ namespace MaichartConverterUnitTest
             string slideReassignedCandidate = "[60#2]";
             string slideBpmQuaverBeatCandidate = "[1##60#2:1]";
 
-            static bool IsEquivalentArray(double[] expected, double[] actual)
-            {
-                if (expected.Length != actual.Length) return false;
-                for (int i = 0; i < expected.Length; i++)
-                {
-                    if (Math.Abs(expected[i] - actual[i]) > 0.001)
-                    {
-                        return false;
-                    }
-                }
+            double[] slideLastTimeCandidateResult = GetTimeCandidates(bpm, slideLastTimeCandidate);
+            double[] slideReassignedCandidateResult = GetTimeCandidates(bpm, slideReassignedCandidate);
+            double[] slideBpmQuaverBeatCandidateResult = GetTimeCandidates(bpm, slideBpmQuaverBeatCandidate);
 
-                return true;
-            }
-
-            double[] reassignedCandidate = SimaiParser.GetTimeCandidates(bpm, slideReassignedCandidate);
-
-            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideLastTimeCandidate)));
-            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideReassignedCandidate)));
-            Assert.IsTrue(IsEquivalentArray(expected, SimaiParser.GetTimeCandidates(bpm, slideBpmQuaverBeatCandidate)));
+            Assert.IsTrue(IsEquivalentArray(expected, slideLastTimeCandidateResult));
+            Assert.IsTrue(IsEquivalentArray(expected, slideReassignedCandidateResult));
+            Assert.IsTrue(IsEquivalentArray(expected, slideBpmQuaverBeatCandidateResult));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,quaverBeatCandidate));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,holdLastTimeCandidate));
             // Assert.AreEqual(expected, SimaiParser.GetTimeCandidates(bpm,slideLastTimeCandidate));
