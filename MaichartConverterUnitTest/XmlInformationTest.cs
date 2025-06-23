@@ -24,7 +24,7 @@ namespace MaichartConverterUnitTest
         public void ExistingXmlTest()
         {
 
-            XmlInformation xml = new XmlInformation("../../../data/500429_Music.xml");
+            XmlInformation xml = new XmlInformation("../../../data/500429_Music.xml", true);
             string expected = "[宴]Wonderland Wars オープニング";
             string actual = xml.InformationDict["Name"];
             Assert.AreEqual(expected,actual);
