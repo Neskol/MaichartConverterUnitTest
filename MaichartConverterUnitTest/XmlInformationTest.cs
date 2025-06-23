@@ -20,14 +20,20 @@ namespace MaichartConverterUnitTest
             // xml.TakeInValue.Save("../../../data/information.xml");
         }
 
-        // [TestMethod]
-        // public void ExistingXmlTest()
-        // {
+        [TestMethod]
+        public void ExistingXmlTest()
+        {
 
-        //     XmlInformation xml = new XmlInformation("../../../data/");
-        //     string expected = "千本桜";
-        //     string actual = xml.Information["Name"];
-        //     Assert.AreEqual(expected,actual);
-        // }
+            XmlInformation xml = new XmlInformation("../../../data/500429_Music.xml");
+            string expected = "[宴]Wonderland Wars オープニング";
+            string actual = xml.InformationDict["Name"];
+            Assert.AreEqual(expected,actual);
+        }
+
+        [TestMethod]
+        public void GenerateNormalXmlTest()
+        {
+
+        }
     }
 }
