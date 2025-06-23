@@ -17,7 +17,7 @@ namespace MaichartConverterUnitTest
         //    Assert.IsTrue(true);
         //}
 
-        public static int Definition = 384;
+        public static int Definition => 384;
 
         //Starts ChartTest
         /// <summary>
