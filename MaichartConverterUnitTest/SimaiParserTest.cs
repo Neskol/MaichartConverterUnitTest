@@ -258,7 +258,7 @@ namespace MaichartConverterUnitTest
         public void ExtractEachSlides2SectionTest()
         {
             string token = "1-3[2:1]";
-            List<string> expected = new() { "1_", "-3[2:1]" };
+            List<string> expected = ["1_", "-3[2:1]"];
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -271,7 +271,7 @@ namespace MaichartConverterUnitTest
         public void ExtractEachSlides2SectionWithBSTTest()
         {
             string token = "1b-3[2:1]";
-            List<string> expected = new() { "1b_", "-3[2:1]" };
+            List<string> expected = ["1b_", "-3[2:1]"];
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -284,7 +284,7 @@ namespace MaichartConverterUnitTest
         public void ExtractEachSlides2SectionWithXSTTest()
         {
             string token = "1x-3[2:1]";
-            List<string> expected = new() { "1x_", "-3[2:1]" };
+            List<string> expected = ["1x_", "-3[2:1]"];
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -297,7 +297,7 @@ namespace MaichartConverterUnitTest
         public void ExtractEachSlides5SectionTest()
         {
             string token = "1-3[2:1]*-5[2:1]*v4[2:1]";
-            List<string> expected = new() { "1_", "-3[2:1]", "-5[2:1]", "v4[2:1]" };
+            List<string> expected = ["1_", "-3[2:1]", "-5[2:1]", "v4[2:1]"];
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -310,7 +310,7 @@ namespace MaichartConverterUnitTest
         public void ExtractEachSlides2SectionQAndQQTest()
         {
             string token = "1-3[2:1]*q5[2:1]*qq4[2:1]";
-            List<string> expected = new() { "1_", "-3[2:1]", "q5[2:1]", "qq4[2:1]" };
+            List<string> expected = ["1_", "-3[2:1]", "q5[2:1]", "qq4[2:1]"];
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
@@ -323,7 +323,7 @@ namespace MaichartConverterUnitTest
         public void ExtractSlideHead()
         {
             string token = "4qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]*pp8[24:5]qq2[0##0.2151]";
-            List<string> expected = new() { "4_", "qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]", "pp8[24:5]qq2[0##0.2151]" };
+            List<string> expected = ["4_", "qq8[24:5]pp6[0##0.2151]pp7[0##0.2151]", "pp8[24:5]qq2[0##0.2151]"];
             List<string> actual = ExtractEachSlides(token);
             Assert.AreEqual(expected.Count, actual.Count);
             for (int i = 0; i < expected.Count; i++)
