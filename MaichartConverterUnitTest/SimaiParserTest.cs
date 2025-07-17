@@ -17,11 +17,13 @@ namespace MaichartConverterUnitTest
             {
                 if (Math.Abs(expected[i] - actual[i]) > 0.001)
                 {
-                    Console.WriteLine("ELEMENT MISMATCH AT INDEX {0}:\nEXPECT: {1}\nACTUAL: {2}", i, expected[i], actual[i]);
+                    Console.WriteLine("ELEMENT MISMATCH AT INDEX {0}:\nEXPECT: {1}\nACTUAL: {2}", i, expected[i],
+                        actual[i]);
                     Console.ReadKey();
                     return false;
                 }
             }
+
             return true;
         }
 

@@ -26,19 +26,19 @@ namespace MaichartConverterUnitTest
             XmlInformation xml = new XmlInformation("../../../data/500429_Music.xml", true);
             string expected = "[宴]Wonderland Wars オープニング";
             string actual = xml.InformationDict["Name"];
-            Assert.AreEqual(expected,actual);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         public void GenerateNormalXmlTest()
         {
-             SimaiTokenizer tokenizer = new SimaiTokenizer();
-             tokenizer.UpdateFromPath("../../../data/maidata_pandora.txt");
-             tokenizer.SimaiTrackInformation.Save("../../../data/Music_pandora.xml");
-             XmlInformation xml = new XmlInformation("../../../data/Music_pandora.xml", true);
-             string expected = "PANDORA PARADOXXX";
-             string actual = xml.InformationDict["Name"];
-             Assert.AreEqual(expected,actual);
+            SimaiTokenizer tokenizer = new SimaiTokenizer();
+            tokenizer.UpdateFromPath("../../../data/maidata_pandora.txt");
+            tokenizer.SimaiTrackInformation.Save("../../../data/Music_pandora.xml");
+            XmlInformation xml = new XmlInformation("../../../data/Music_pandora.xml", true);
+            string expected = "PANDORA PARADOXXX";
+            string actual = xml.InformationDict["Name"];
+            Assert.AreEqual(expected, actual);
         }
     }
 }
