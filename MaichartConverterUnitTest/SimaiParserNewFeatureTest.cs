@@ -110,7 +110,7 @@ public class SimaiParserNewFeatureTest
         Simai apollo = new Simai(test);
         apollo.Update();
         // Console.WriteLine(test.Compose());
-        Console.WriteLine(apollo.Compose(ChartEnum.ChartVersion.Ma2_104));
+        Console.WriteLine(apollo.Compose(ChartEnum.ChartVersion.Simai));
         StreamWriter sw2 = new StreamWriter("../../../data/ApolloAfterSimaiPaser.ma2", false);
         sw2.WriteLine(test.Compose());
         sw2.Close();
