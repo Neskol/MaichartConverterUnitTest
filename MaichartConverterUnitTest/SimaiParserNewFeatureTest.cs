@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using MaiLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -97,5 +98,22 @@ public class SimaiParserNewFeatureTest
         Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
         Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Simai));
         Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Ma2_104));
+    }
+
+    /// <summary>
+    ///     Test Apollo middle slide issue
+    /// </summary>
+    [TestMethod]
+    public void TestApolloReverse()
+    {
+        Ma2 test = new Ma2("../../../data/011661_03.ma2") { ChartVersion = ChartEnum.ChartVersion.Ma2_104 };
+        Simai apollo = new Simai(test);
+        apollo.Update();
+        // Console.WriteLine(test.Compose());
+        Console.WriteLine(apollo.Compose(ChartEnum.ChartVersion.Ma2_104));
+        StreamWriter sw2 = new StreamWriter("../../../data/ApolloAfterSimaiPaser.ma2", false);
+        sw2.WriteLine(test.Compose());
+        sw2.Close();
+        Assert.IsNotNull(test);
     }
 }
