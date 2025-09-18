@@ -1,6 +1,6 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MaiLib;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static MaiLib.NoteEnum;
 using static MaiLib.ChartEnum;
 
@@ -66,7 +66,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void GetTimeStampTestNoteTapBar0Tick192WithoutChart()
         {
-            BPMChanges bpmChanges = new BPMChanges();
+            BPMChanges bpmChanges = new();
             bpmChanges.Add(new BPMChange(0, 0, 60.0));
             bpmChanges.Add(new BPMChange(1, 0, 120.0));
             bpmChanges.Add(new BPMChange(2, 0, 240.0));
@@ -83,7 +83,7 @@ namespace MaichartConverterUnitTest
         [TestMethod]
         public void GetTimeStampTestNoteSlideBar0Tick192WithoutChart()
         {
-            BPMChanges bpmChanges = new BPMChanges();
+            BPMChanges bpmChanges = new();
             bpmChanges.Add(new BPMChange(0, 0, 60.0));
             bpmChanges.Add(new BPMChange(1, 0, 120.0));
             bpmChanges.Add(new BPMChange(2, 0, 240.0));
