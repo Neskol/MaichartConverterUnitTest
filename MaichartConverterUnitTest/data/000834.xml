@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MusicData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <dataName>music000834</dataName>
+  <netOpenName>
+    <id>0</id>
+    <str>Net190711</str>
+  </netOpenName>
+  <releaseTagName>
+    <id>1</id>
+    <str>Ver1.00.00</str>
+  </releaseTagName>
+  <disable>false</disable>
+  <longMusic>0</longMusic>
+  <name>
+    <id>834</id>
+    <str>PANDORA PARADOXXX</str>
+  </name>
+  <rightsInfoName>
+    <id>0</id>
+    <str />
+  </rightsInfoName>
+  <sortName>PANDORAPARADOXXX</sortName>
+  <artistName>
+    <id>366</id>
+    <str>削除</str>
+  </artistName>
+  <genreName>
+    <id>105</id>
+    <str>maimai</str>
+  </genreName>
+  <bpm>150</bpm>
+  <version>19998</version>
+  <AddVersion>
+    <id>12</id>
+    <str>FiNALE</str>
+  </AddVersion>
+  <movieName>
+    <id>834</id>
+    <str>PANDORA PARADOXXX</str>
+  </movieName>
+  <cueName>
+    <id>834</id>
+    <str>PANDORA PARADOXXX</str>
+  </cueName>
+  <dresscode>false</dresscode>
+  <eventName>
+    <id>1</id>
+    <str>無期限常時解放</str>
+  </eventName>
+  <eventName2>
+    <id>0</id>
+    <str>解放なし</str>
+  </eventName2>
+  <subEventName>
+    <id>1</id>
+    <str>無期限常時解放</str>
+  </subEventName>
+  <lockType>0</lockType>
+  <subLockType>0</subLockType>
+  <dotNetListView>true</dotNetListView>
+  <notesData>
+    <Notes>
+      <file>
+        <path>000834_00.ma2</path>
+      </file>
+      <level>7</level>
+      <levelDecimal>7</levelDecimal>
+      <notesDesigner>
+        <id>999</id>
+        <str>-</str>
+      </notesDesigner>
+      <notesType>0</notesType>
+      <musicLevelID>8</musicLevelID>
+      <maxNotes>307</maxNotes>
+      <isEnable>true</isEnable>
+    </Notes>
+    <Notes>
+      <file>
+        <path>000834_01.ma2</path>
+      </file>
+      <level>11</level>
+      <levelDecimal>5</levelDecimal>
+      <notesDesigner>
+        <id>999</id>
+        <str>-</str>
+      </notesDesigner>
+      <notesType>0</notesType>
+      <musicLevelID>15</musicLevelID>
+      <maxNotes>568</maxNotes>
+      <isEnable>true</isEnable>
+    </Notes>
+    <Notes>
+      <file>
+        <path>000834_02.ma2</path>
+      </file>
+      <level>13</level>
+      <levelDecimal>9</levelDecimal>
+      <notesDesigner>
+        <id>11</id>
+        <str>譜面-100号</str>
+      </notesDesigner>
+      <notesType>0</notesType>
+      <musicLevelID>20</musicLevelID>
+      <maxNotes>855</maxNotes>
+      <isEnable>true</isEnable>
+    </Notes>
+    <Notes>
+      <file>
+        <path>000834_03.ma2</path>
+      </file>
+      <level>14</level>
+      <levelDecimal>9</levelDecimal>
+      <notesDesigner>
+        <id>45</id>
+        <str>PANDORA BOXXX</str>
+      </notesDesigner>
+      <notesType>0</notesType>
+      <musicLevelID>22</musicLevelID>
+      <maxNotes>1309</maxNotes>
+      <isEnable>true</isEnable>
+    </Notes>
+    <Notes>
+      <file>
+        <path>000834_04.ma2</path>
+      </file>
+      <level>15</level>
+      <levelDecimal>0</levelDecimal>
+      <notesDesigner>
+        <id>46</id>
+        <str>PANDORA PARADOXXX</str>
+      </notesDesigner>
+      <notesType>0</notesType>
+      <musicLevelID>23</musicLevelID>
+      <maxNotes>1342</maxNotes>
+      <isEnable>true</isEnable>
+    </Notes>
+    <Notes>
+      <file>
+        <path>000834_05.ma2</path>
+      </file>
+      <level>0</level>
+      <levelDecimal>0</levelDecimal>
+      <notesDesigner>
+        <id>0</id>
+        <str />
+      </notesDesigner>
+      <notesType>0</notesType>
+      <musicLevelID>0</musicLevelID>
+      <maxNotes>0</maxNotes>
+      <isEnable>false</isEnable>
+    </Notes>
+  </notesData>
+  <utageKanjiName />
+  <comment />
+  <utagePlayStyle>0</utagePlayStyle>
+  <fixedOptions>
+    <FixedOption>
+      <_fixedOptionName />
+      <_fixedOptionValue />
+    </FixedOption>
+    <FixedOption>
+      <_fixedOptionName />
+      <_fixedOptionValue />
+    </FixedOption>
+    <FixedOption>
+      <_fixedOptionName />
+      <_fixedOptionValue />
+    </FixedOption>
+    <FixedOption>
+      <_fixedOptionName />
+      <_fixedOptionValue />
+    </FixedOption>
+  </fixedOptions>
+  <jacketFile />
+  <thumbnailName />
+  <rightFile />
+  <priority>0</priority>
+</MusicData>
