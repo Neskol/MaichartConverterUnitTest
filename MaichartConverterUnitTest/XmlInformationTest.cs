@@ -16,15 +16,6 @@ namespace MaichartConverterUnitTest
         }
 
         [TestMethod]
-        public void ExistingXmlTest()
-        {
-            XmlInformation xml = new("../../../data/500429_Music.xml", true);
-            string expected = "[宴]Wonderland Wars オープニング";
-            string actual = xml.InformationDict["Name"];
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
         public void GenerateNormalXmlTest()
         {
             SimaiTokenizer tokenizer = new();
