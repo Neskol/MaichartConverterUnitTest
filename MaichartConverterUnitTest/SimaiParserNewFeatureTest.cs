@@ -89,6 +89,20 @@ public class SimaiParserNewFeatureTest
         Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Ma2_104));
     }
 
+    /// <summary>
+    ///     From MaiLib PR #58
+    /// </summary>
+    [TestMethod]
+    public void ContinuedPPSlides()
+    {
+        string token = "(120){1}1p2p3p4p5p6[1:1],{1}1q2q3q4q5q6[1:1],E";
+        SimaiParser parser = new();
+        SimaiTokenizer tokenizer = new();
+        Chart candidate = parser.ChartOfToken(tokenizer.TokensFromText(token));
+        Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Simai));
+        Console.WriteLine(candidate.Compose(ChartEnum.ChartVersion.Ma2_104));
+    }
+
     [TestMethod]
     public void TouchHoldOtherThanC()
     {
